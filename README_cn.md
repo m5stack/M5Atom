@@ -10,7 +10,7 @@
 
 ## 描述
 
-<mark>**ATOM Matrix**</mark> and <mark>**ATOM Lite**</mark> 是一款基于ESP32-PICO-D4的迷你开发板内置蓝牙和wifi，大小只有24*24mm，ATOM系列开发板包含IR，RGB LED, 按键和PH2.0接口，提供6个GPIO引脚。相比 ATOM Lite，ATOM Matrix拥有5 * 5 RGB LED矩阵和MPU6886.
+<mark>**ATOM Matrix**</mark> 与 <mark>**ATOM Lite**</mark> 是一款基于ESP32-PICO-D4的迷你开发板内置蓝牙和wifi，大小只有24*24mm，ATOM系列开发板包含IR，RGB LED, 按键和PH2.0接口，提供6个GPIO引脚。相比 ATOM Lite，ATOM Matrix拥有5 * 5 RGB LED矩阵和MPU6886.
 
 ## PinMap
 
