@@ -10,7 +10,7 @@ English | [中文](README_cn.md)
 
 ## Description
 
-<mark>**ATOM Matrix**</mark> and <mark>**ATOM Lite**</mark> are ESP32 development board with a size of only 24 * 24mm.It provides more GPIO for user customization which is very suitable for embedded smart home devices and in making smart toys. The main control adopts the ESP32-PICO chip which comes integrated with Wi-Fi and Bluetooth technologies and has a 4MB of integrated SPI flash memory. ATOM board provides an Infra-Red LED, RGB LED, buttons, and a PH2.0 interface. In addition, it can connect to external sensors and actuators through 6 GPIOs. The on-board Type-C USB interface enables rapid program upload and execution. ATOM Matrix have 5*5 RGB LED matrix, built-in IMU sensor (MPU6886). 
+<mark>**ATOM Matrix**</mark> and <mark>**ATOM Lite**</mark> are ESP32 development board with a size of only 24 * 24mm.It provides more GPIO for user customization which is very suitable for embedded smart home devices and in making smart toys. The main control adopts the ESP32-PICO chip which comes integrated with Wi-Fi and Bluetooth technologies and has a 4MB of integrated SPI flash memory. ATOM board provides an Infra-Red LED, RGB LED, buttons, and a PH2.0 interface. In addition, it can connect to external sensors and actuators through 6 GPIOs. The on-board Type-C USB interface enables rapid program upload and execution. ATOM Matrix have 5 * 5 RGB LED matrix, built-in IMU sensor (MPU6886). 
 
 ## PinMap
 
