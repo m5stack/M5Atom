@@ -1,0 +1,6 @@
+{
+    "board": "esp32:esp32:m5stick-c",
+    "configuration": "PartitionScheme=default,UploadSpeed=1500000,DebugLevel=none",
+    "port": "COM4",
+    "sketch": "examples\\Basics\\Buttom\\Buttom.ino"
+}

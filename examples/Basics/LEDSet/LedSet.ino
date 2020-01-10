@@ -3,6 +3,7 @@
 void setup()
 {
     M5.begin(true, false, true);
+    delay(50);
     M5.dis.drawpix(0, 0xf00000);
 }
 

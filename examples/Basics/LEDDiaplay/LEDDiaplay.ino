@@ -9,6 +9,7 @@ bool IMU6886Flag = false;
 void setup()
 {
     M5.begin(true, false, true);
+    delay(50);
     M5.dis.animation((uint8_t *)AtomImageData, 200, LED_DiaPaly::kMoveLeft, 18);
 }
 

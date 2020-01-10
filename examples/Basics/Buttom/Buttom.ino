@@ -21,6 +21,7 @@ void setup()
     M5.begin(true, false, true);
     delay(10);
     setBuff(0xff, 0x00, 0x00);
+    M5.dis.displaybuff(DisBuff);
 }
 
 uint8_t FSM = 0;
