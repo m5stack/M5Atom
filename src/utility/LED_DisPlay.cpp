@@ -1,16 +1,18 @@
 #include "LED_DisPaly.h"
 
-LED_DiaPaly::LED_DiaPaly(uint8_t LEDNumbre)
+LED_DisPaly::LED_DisPaly(uint8_t LEDNumbre)
 {
-    FastLED.addLeds<NEOPIXEL, DATA_PIN>(_ledbuff, LEDNumbre);
+    FastLED.addLeds<WS2812, DATA_PIN>(_ledbuff, LEDNumbre);
+    _xSemaphore = xSemaphoreCreateMutex();
     _numberled = LEDNumbre;
 }
 
-LED_DiaPaly::~LED_DiaPaly()
+LED_DisPaly::~LED_DisPaly()
 {
+
 }
 
-void LED_DiaPaly::run(void *data)
+void LED_DisPaly::run(void *data)
 {
     data = nullptr;
 
@@ -23,6 +25,7 @@ void LED_DiaPaly::run(void *data)
 
     while (1)
     {
+        xSemaphoreTake(_xSemaphore, portMAX_DELAY);
         if (_mode == kAnmiation_run)
         {
             if ((_am_mode & kMoveRight) || (_am_mode & kMoveLeft))
@@ -57,14 +60,22 @@ void LED_DiaPaly::run(void *data)
             }
             displaybuff(_am_buffptr, _count_x, _count_y);
             delay(_am_speed);
+            delay(10);
+            xSemaphoreGive(_xSemaphore);
         }
+        else
+        {
+            delay(10);
+            xSemaphoreGive(_xSemaphore);
+        }
+        
         FastLED.show();
-        delay(10);
     }
 }
 
-void LED_DiaPaly::animation(uint8_t *buffptr, uint8_t amspeed, uint8_t ammode, int64_t amcount)
+void LED_DisPaly::animation(uint8_t *buffptr, uint8_t amspeed, uint8_t ammode, int64_t amcount)
 {
+    xSemaphoreTake(_xSemaphore, portMAX_DELAY);
     if (_mode == kAnmiation_run)
     {
         _mode = kAnmiation_stop;
@@ -75,9 +86,10 @@ void LED_DiaPaly::animation(uint8_t *buffptr, uint8_t amspeed, uint8_t ammode, i
     _am_count = amcount;
     _count_x = _count_y = 0;
     _mode = kAnmiation_run;
+    xSemaphoreGive(_xSemaphore);
 }
 
-void LED_DiaPaly::displaybuff(uint8_t *buffptr, int8_t offsetx, int8_t offsety)
+void LED_DisPaly::displaybuff(uint8_t *buffptr, int8_t offsetx, int8_t offsety)
 {
     uint16_t xsize = 0, ysize = 0;
     xsize = buffptr[0];
@@ -88,6 +100,7 @@ void LED_DiaPaly::displaybuff(uint8_t *buffptr, int8_t offsetx, int8_t offsety)
 
     int8_t setdatax = (offsetx < 0) ? (-offsetx) : (xsize - offsetx);
     int8_t setdatay = (offsety < 0) ? (-offsety) : (ysize - offsety);
+    xSemaphoreTake(_xSemaphore, portMAX_DELAY);
     for (int x = 0; x < 5; x++)
     {
         for (int y = 0; y < 5; y++)
@@ -97,36 +110,45 @@ void LED_DiaPaly::displaybuff(uint8_t *buffptr, int8_t offsetx, int8_t offsety)
             _ledbuff[x + y * 5].raw[2] = buffptr[2 + ((setdatax + x) % xsize + ((setdatay + y) % ysize) * xsize) * 3 + 2];
         }
     }
+    xSemaphoreGive(_xSemaphore);
     FastLED.setBrightness(20);
 }
 
-void LED_DiaPaly::setBrightness(uint8_t brightness)
+void LED_DisPaly::setBrightness(uint8_t brightness)
 {
+    xSemaphoreTake(_xSemaphore, portMAX_DELAY);
     FastLED.setBrightness(brightness);
+    xSemaphoreGive(_xSemaphore);
 }
 
-void LED_DiaPaly::drawpix(uint8_t xpos, uint8_t ypos, CRGB Color)
+void LED_DisPaly::drawpix(uint8_t xpos, uint8_t ypos, CRGB Color)
 {
     if ((xpos >= 5) || (ypos >= 5))
     {
         return;
     }
+    xSemaphoreTake(_xSemaphore, portMAX_DELAY);
     _ledbuff[xpos + ypos * 5] = Color;
+    xSemaphoreGive(_xSemaphore);
 }
 
-void LED_DiaPaly::drawpix(uint8_t Number, CRGB Color)
+void LED_DisPaly::drawpix(uint8_t Number, CRGB Color)
 {
     if (Number >= 25)
     {
         return;
     }
+    xSemaphoreTake(_xSemaphore, portMAX_DELAY);
     _ledbuff[Number] = Color;
+    xSemaphoreGive(_xSemaphore);
 }
 
-void LED_DiaPaly::clear()
+void LED_DisPaly::clear()
 {
+    xSemaphoreTake(_xSemaphore, portMAX_DELAY);
     for (int8_t i = 0; i < 25; i++)
     {
         _ledbuff[i] = 0;
     }
+    xSemaphoreGive(_xSemaphore);
 }

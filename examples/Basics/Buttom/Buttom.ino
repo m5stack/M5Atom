@@ -34,16 +34,16 @@ void loop()
         switch (FSM)
         {
         case 0:
-            setBuff(0xff, 0x00, 0x00);
+            setBuff(0x40, 0x00, 0x00);
             break;
         case 1:
-            setBuff(0x00, 0xff, 0x00);
+            setBuff(0x00, 0x40, 0x00);
             break;
         case 2:
-            setBuff(0x00, 0x00, 0xff);
+            setBuff(0x00, 0x00, 0x40);
             break;
         case 3:
-            setBuff(0x70, 0x70, 0x70);
+            setBuff(0x20, 0x20, 0x20);
             break;
         default:
             break;

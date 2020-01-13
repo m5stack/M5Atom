@@ -3,11 +3,13 @@
 
 #include <FastLED.h>
 #include "utility/Task.h"
+#include <freertos/FreeRTOS.h>
+#include <freertos/task.h>
 
 #define NUM_LEDS 25
 #define DATA_PIN 27
 
-class LED_DiaPaly : public Task
+class LED_DisPaly : public Task
 {
 private:
     CRGB _ledbuff[NUM_LEDS];
@@ -19,6 +21,8 @@ private:
     int32_t _count_x, _count_y;
     int32_t _am_count = -1;
     uint8_t *_am_buffptr;
+
+    SemaphoreHandle_t _xSemaphore = NULL;
 
 public:
     enum
@@ -37,8 +41,8 @@ public:
 
     /* data */
 public:
-    LED_DiaPaly(uint8_t LEDNumbre = 25);
-    ~LED_DiaPaly();
+    LED_DisPaly(uint8_t LEDNumbre = 25);
+    ~LED_DisPaly();
     void run(void *data);
 
     void animation(uint8_t *buffptr, uint8_t amspeed, uint8_t ammode, int64_t amcount = -1);
