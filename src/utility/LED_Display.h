@@ -9,7 +9,7 @@
 #define NUM_LEDS 25
 #define DATA_PIN 27
 
-class LED_DisPaly : public Task
+class LED_Display : public Task
 {
 private:
     CRGB _ledbuff[NUM_LEDS];
@@ -41,8 +41,8 @@ public:
 
     /* data */
 public:
-    LED_DisPaly(uint8_t LEDNumbre = 25);
-    ~LED_DisPaly();
+    LED_Display(uint8_t LEDNumbre = 25);
+    ~LED_Display();
     void run(void *data);
 
     void animation(uint8_t *buffptr, uint8_t amspeed, uint8_t ammode, int64_t amcount = -1);

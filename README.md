@@ -2,10 +2,10 @@
 
 English | [中文](README_cn.md)
 
-<img src="https://m5stack.oss-cn-shenzhen.aliyuncs.com/image/m5-docs_homepage/core/atom_lite_01.webp" alt="M5StickC_01" width="350" height="350">
+<img src="https://m5stack.oss-cn-shenzhen.aliyuncs.com/image/m5-docs_homepage/core/atom_lite_01.webp" alt="M5Atom Lite" width="350" height="350">
 
 
-<img src="https://m5stack.oss-cn-shenzhen.aliyuncs.com/image/m5-docs_homepage/core/atom_matrix_01.webp" alt="M5StickC_01" width="350" height="350">
+<img src="https://m5stack.oss-cn-shenzhen.aliyuncs.com/image/m5-docs_homepage/core/atom_matrix_01.webp" alt="M5Atom Matrix" width="350" height="350">
 
 
 ## Description
@@ -16,11 +16,11 @@ English | [中文](README_cn.md)
 
 **ATOM Lite**
 
-<img src="https://docs.m5stack.com/assets/img/product_pics/core/minicore/atom/atom_lite.jpg" alt="M5StickC_01" height="350" style="margin-left:20px">
+<img src="https://docs.m5stack.com/assets/img/product_pics/core/minicore/atom/atom_lite.jpg" alt="M5Atom Lite" height="350" style="margin-left:20px">
 
 **ATOM Matrix**
 
-<img src="https://docs.m5stack.com/assets/img/product_pics/core/minicore/atom/atom_matrix.jpg" alt="M5StickC_01" height="350" style="margin-left:20px">
+<img src="https://docs.m5stack.com/assets/img/product_pics/core/minicore/atom/atom_matrix.jpg" alt="M5Atom Matrix" height="350" style="margin-left:20px">
 
 
 <table>

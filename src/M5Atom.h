@@ -53,7 +53,7 @@
 
 #include "utility/MPU6886.h"
 #include "utility/Button.h"
-#include "utility/LED_DisPaly.h"
+#include "utility/LED_Display.h"
 
 class M5Atom
 {
@@ -65,7 +65,7 @@ public:
 	~M5Atom();
 
 	MPU6886 IMU;
-	LED_DiaPaly dis;
+	LED_Display dis;
 
 	Button Btn = Button(39, true, 10);
 
