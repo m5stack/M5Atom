@@ -38,3 +38,9 @@ English | [中文](README_cn.md)
  <tr><td>ESP32 chip</td><td>GPIO32</td><td>GPIO26</td><td>5V</td><td>GND</td></tr>
  <tr><td>PH2.0 interface</td><td>SCL</td><td>SDA</td><td>5V</td><td>GND</td></tr>
 </table>
+
+**Atom pixel tool**
+
+<img src="https://github.com/m5stack/M5Atom/blob/master/tools/AtomPixelTool.jpg" alt="AtomPixelTool" height="100" style="margin-left:20px">
+
+[Click here to download](https://m5stack.oss-cn-shenzhen.aliyuncs.com/resource/software/AtomPixTool.exe)
