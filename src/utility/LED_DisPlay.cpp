@@ -1,3 +1,10 @@
+/*
+  LED_DisPlay.cpp
+  Modified by RIRI, Mars 2020.
+  Released under GPL v3.0
+*/
+
+
 #include "LED_Display.h"
 
 LED_Display::LED_Display(uint8_t LEDNumbre)
