@@ -1,3 +1,10 @@
+/*
+  LED_DisPlay.cpp
+  Modified by RIRI, Mars 2020.
+  Released under GPL v3.0
+*/
+
+
 #include "LED_Display.h"
 
 LED_Display::LED_Display(uint8_t LEDNumbre)
@@ -9,7 +16,6 @@ LED_Display::LED_Display(uint8_t LEDNumbre)
 
 LED_Display::~LED_Display()
 {
-
 }
 
 void LED_Display::run(void *data)
@@ -21,7 +27,6 @@ void LED_Display::run(void *data)
         _ledbuff[num] = 0x000000;
     }
     FastLED.show();
-    FastLED.setBrightness(20);
 
     while (1)
     {
@@ -58,17 +63,17 @@ void LED_Display::run(void *data)
                     _mode = kAnmiation_stop;
                 }
             }
+
+            xSemaphoreGive(_xSemaphore);
             displaybuff(_am_buffptr, _count_x, _count_y);
             delay(_am_speed);
             delay(10);
-            xSemaphoreGive(_xSemaphore);
         }
         else
         {
-            delay(10);
             xSemaphoreGive(_xSemaphore);
+            delay(10);
         }
-        
         FastLED.show();
     }
 }
@@ -91,6 +96,8 @@ void LED_Display::animation(uint8_t *buffptr, uint8_t amspeed, uint8_t ammode, i
 
 void LED_Display::displaybuff(uint8_t *buffptr, int8_t offsetx, int8_t offsety)
 {
+    xSemaphoreTake(_xSemaphore, portMAX_DELAY);
+
     uint16_t xsize = 0, ysize = 0;
     xsize = buffptr[0];
     ysize = buffptr[1];
@@ -100,7 +107,7 @@ void LED_Display::displaybuff(uint8_t *buffptr, int8_t offsetx, int8_t offsety)
 
     int8_t setdatax = (offsetx < 0) ? (-offsetx) : (xsize - offsetx);
     int8_t setdatay = (offsety < 0) ? (-offsety) : (ysize - offsety);
-    xSemaphoreTake(_xSemaphore, portMAX_DELAY);
+
     for (int x = 0; x < 5; x++)
     {
         for (int y = 0; y < 5; y++)
@@ -111,7 +118,6 @@ void LED_Display::displaybuff(uint8_t *buffptr, int8_t offsetx, int8_t offsety)
         }
     }
     xSemaphoreGive(_xSemaphore);
-    FastLED.setBrightness(20);
 }
 
 void LED_Display::setBrightness(uint8_t brightness)
