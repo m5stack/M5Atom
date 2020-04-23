@@ -1,9 +1,9 @@
 #include "LED_Display.h"
 
-LED_Display::LED_Display(uint8_t LEDNumbre)
+LED_Display::LED_Display(uint8_t LEDNumber)
 {
     _xSemaphore = xSemaphoreCreateMutex();
-    _numberled = LEDNumbre;
+    _numberled = LEDNumber;
 }
 
 LED_Display::~LED_Display()

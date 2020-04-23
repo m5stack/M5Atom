@@ -41,7 +41,7 @@ public:
 
     /* data */
 public:
-    LED_Display(uint8_t LEDNumbre = 25);
+    LED_Display(uint8_t LEDNumber = 25);
     ~LED_Display();
     void run(void *data);
 
