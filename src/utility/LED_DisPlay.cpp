@@ -2,7 +2,6 @@
 
 LED_Display::LED_Display(uint8_t LEDNumbre)
 {
-    FastLED.addLeds<WS2812, DATA_PIN>(_ledbuff, LEDNumbre);
     _xSemaphore = xSemaphoreCreateMutex();
     _numberled = LEDNumbre;
 }
@@ -14,6 +13,7 @@ LED_Display::~LED_Display()
 
 void LED_Display::run(void *data)
 {
+    FastLED.addLeds<WS2812, DATA_PIN>(_ledbuff, _numberled);
     data = nullptr;
 
     for (int num = 0; num < 26; num++)
