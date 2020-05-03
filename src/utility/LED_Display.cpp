@@ -26,7 +26,7 @@ void LED_Display::run(void *data)
     while (1)
     {
         xSemaphoreTake(_xSemaphore, portMAX_DELAY);
-        if (_mode == kAnmiation_run)
+        if (_mode == kAnimation_run)
         {
             if ((_am_mode & kMoveRight) || (_am_mode & kMoveLeft))
             {
@@ -55,7 +55,7 @@ void LED_Display::run(void *data)
                 _am_count--;
                 if (_am_count == 0)
                 {
-                    _mode = kAnmiation_stop;
+                    _mode = kAnimation_stop;
                 }
             }
             displaybuff(_am_buffptr, _count_x, _count_y);
@@ -77,16 +77,16 @@ void LED_Display::run(void *data)
 void LED_Display::animation(uint8_t *buffptr, uint8_t amspeed, uint8_t ammode, int64_t amcount)
 {
     xSemaphoreTake(_xSemaphore, portMAX_DELAY);
-    if (_mode == kAnmiation_run)
+    if (_mode == kAnimation_run)
     {
-        _mode = kAnmiation_stop;
+        _mode = kAnimation_stop;
     }
     _am_buffptr = buffptr;
     _am_speed = amspeed;
     _am_mode = ammode;
     _am_count = amcount;
     _count_x = _count_y = 0;
-    _mode = kAnmiation_run;
+    _mode = kAnimation_run;
     xSemaphoreGive(_xSemaphore);
 }
 
