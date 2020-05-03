@@ -1,10 +1,10 @@
 #include "LED_Display.h"
 
-LED_Display::LED_Display(uint8_t LEDNumbre)
+LED_Display::LED_Display(uint8_t LEDNumber)
 {
-    FastLED.addLeds<WS2812, DATA_PIN>(_ledbuff, LEDNumbre);
+    FastLED.addLeds<WS2812, DATA_PIN>(_ledbuff, LEDNumber);
     _xSemaphore = xSemaphoreCreateMutex();
-    _numberled = LEDNumbre;
+    _numberled = LEDNumber;
 }
 
 LED_Display::~LED_Display()
@@ -39,7 +39,7 @@ void LED_Display::run(void *data)
                     _count_x--;
                 }
             }
-            if ((_am_mode & kMoveTop) || (_am_mode & kMoveButtom))
+            if ((_am_mode & kMoveTop) || (_am_mode & kMoveBottom))
             {
                 if (_am_mode & kMoveTop)
                 {
@@ -70,6 +70,7 @@ void LED_Display::run(void *data)
         }
         
         FastLED.show();
+		FastLED.setBrightness(20);
     }
 }
 
@@ -100,7 +101,6 @@ void LED_Display::displaybuff(uint8_t *buffptr, int8_t offsetx, int8_t offsety)
 
     int8_t setdatax = (offsetx < 0) ? (-offsetx) : (xsize - offsetx);
     int8_t setdatay = (offsety < 0) ? (-offsety) : (ysize - offsety);
-    xSemaphoreTake(_xSemaphore, portMAX_DELAY);
     for (int x = 0; x < 5; x++)
     {
         for (int y = 0; y < 5; y++)
@@ -110,8 +110,6 @@ void LED_Display::displaybuff(uint8_t *buffptr, int8_t offsetx, int8_t offsety)
             _ledbuff[x + y * 5].raw[2] = buffptr[2 + ((setdatax + x) % xsize + ((setdatay + y) % ysize) * xsize) * 3 + 2];
         }
     }
-    xSemaphoreGive(_xSemaphore);
-    FastLED.setBrightness(20);
 }
 
 void LED_Display::setBrightness(uint8_t brightness)
