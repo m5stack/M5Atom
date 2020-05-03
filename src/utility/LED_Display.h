@@ -28,20 +28,20 @@ public:
     enum
     {
         kStatic = 0,
-        kAnmiation_run,
-        kAnmiation_stop,
+        kAnimation_run,
+        kAnimation_stop,
     } Dismode;
     enum
     {
         kMoveRight = 0x01,
         kMoveLeft = 0x02,
         kMoveTop = 0x04,
-        kMoveButtom = 0x08,
+        kMoveBottom = 0x08,
     } Am_mode;
 
     /* data */
 public:
-    LED_Display(uint8_t LEDNumbre = 25);
+    LED_Display(uint8_t LEDNumber = NUM_LEDS);
     ~LED_Display();
     void run(void *data);
 
