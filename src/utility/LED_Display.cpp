@@ -70,7 +70,7 @@ void LED_Display::run(void *data)
         }
         
         FastLED.show();
-		FastLED.setBrightness(20);
+	FastLED.setBrightness(20);
     }
 }
 
