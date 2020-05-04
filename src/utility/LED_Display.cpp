@@ -16,7 +16,7 @@ void LED_Display::run(void *data)
 {
     data = nullptr;
 
-    for (int num = 0; num < 26; num++)
+    for (int num = 0; num < NUM_LEDS; num++)
     {
         _ledbuff[num] = 0x000000;
     }
@@ -144,7 +144,7 @@ void LED_Display::drawpix(uint8_t Number, CRGB Color)
 void LED_Display::clear()
 {
     xSemaphoreTake(_xSemaphore, portMAX_DELAY);
-    for (int8_t i = 0; i < 25; i++)
+    for (int8_t i = 0; i < NUM_LEDS; i++)
     {
         _ledbuff[i] = 0;
     }
