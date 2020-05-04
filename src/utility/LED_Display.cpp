@@ -28,6 +28,7 @@ void LED_Display::run(void *data)
         xSemaphoreTake(_xSemaphore, portMAX_DELAY);
         if (_mode == kAnimation_run)
         {
+            displaybuff(_am_buffptr, _count_x, _count_y);
             if ((_am_mode & kMoveRight) || (_am_mode & kMoveLeft))
             {
                 if (_am_mode & kMoveRight)
@@ -58,7 +59,6 @@ void LED_Display::run(void *data)
                     _mode = kAnimation_stop;
                 }
             }
-            displaybuff(_am_buffptr, _count_x, _count_y);
             delay(_am_speed);
             delay(10);
             xSemaphoreGive(_xSemaphore);
