@@ -99,8 +99,8 @@ void LED_Display::displaybuff(uint8_t *buffptr, int32_t offsetx, int32_t offsety
     offsetx = offsetx % xsize;
     offsety = offsety % ysize;
 
-    int8_t setdatax = (offsetx < 0) ? (-offsetx) : (xsize - offsetx);
-    int8_t setdatay = (offsety < 0) ? (-offsety) : (ysize - offsety);
+    int16_t setdatax = (offsetx < 0) ? (-offsetx) : (xsize - offsetx);
+    int16_t setdatay = (offsety < 0) ? (-offsety) : (ysize - offsety);
     for (int x = 0; x < 5; x++)
     {
         for (int y = 0; y < 5; y++)
