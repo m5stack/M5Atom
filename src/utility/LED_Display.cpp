@@ -90,7 +90,7 @@ void LED_Display::animation(uint8_t *buffptr, uint8_t amspeed, uint8_t ammode, i
     xSemaphoreGive(_xSemaphore);
 }
 
-void LED_Display::displaybuff(uint8_t *buffptr, int8_t offsetx, int8_t offsety)
+void LED_Display::displaybuff(uint8_t *buffptr, int32_t offsetx, int32_t offsety)
 {
     uint16_t xsize = 0, ysize = 0;
     xsize = buffptr[0];
