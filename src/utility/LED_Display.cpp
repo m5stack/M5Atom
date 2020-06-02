@@ -1,10 +1,10 @@
 #include "LED_Display.h"
 
-LED_Display::LED_Display(uint8_t LEDNumbre)
+LED_Display::LED_Display(uint8_t LEDNumber)
 {
-    FastLED.addLeds<WS2812, DATA_PIN>(_ledbuff, LEDNumbre);
+    FastLED.addLeds<WS2812, DATA_PIN>(_ledbuff, LEDNumber);
     _xSemaphore = xSemaphoreCreateMutex();
-    _numberled = LEDNumbre;
+    _numberled = LEDNumber;
 }
 
 LED_Display::~LED_Display()
@@ -16,7 +16,7 @@ void LED_Display::run(void *data)
 {
     data = nullptr;
 
-    for (int num = 0; num < 26; num++)
+    for (int num = 0; num < NUM_LEDS; num++)
     {
         _ledbuff[num] = 0x000000;
     }
@@ -26,8 +26,9 @@ void LED_Display::run(void *data)
     while (1)
     {
         xSemaphoreTake(_xSemaphore, portMAX_DELAY);
-        if (_mode == kAnmiation_run)
+        if (_mode == kAnimation_run)
         {
+            displaybuff(_am_buffptr, _count_x, _count_y);
             if ((_am_mode & kMoveRight) || (_am_mode & kMoveLeft))
             {
                 if (_am_mode & kMoveRight)
@@ -39,7 +40,7 @@ void LED_Display::run(void *data)
                     _count_x--;
                 }
             }
-            if ((_am_mode & kMoveTop) || (_am_mode & kMoveButtom))
+            if ((_am_mode & kMoveTop) || (_am_mode & kMoveBottom))
             {
                 if (_am_mode & kMoveTop)
                 {
@@ -55,10 +56,9 @@ void LED_Display::run(void *data)
                 _am_count--;
                 if (_am_count == 0)
                 {
-                    _mode = kAnmiation_stop;
+                    _mode = kAnimation_stop;
                 }
             }
-            displaybuff(_am_buffptr, _count_x, _count_y);
             delay(_am_speed);
             delay(10);
             xSemaphoreGive(_xSemaphore);
@@ -70,26 +70,27 @@ void LED_Display::run(void *data)
         }
         
         FastLED.show();
+	FastLED.setBrightness(20);
     }
 }
 
 void LED_Display::animation(uint8_t *buffptr, uint8_t amspeed, uint8_t ammode, int64_t amcount)
 {
     xSemaphoreTake(_xSemaphore, portMAX_DELAY);
-    if (_mode == kAnmiation_run)
+    if (_mode == kAnimation_run)
     {
-        _mode = kAnmiation_stop;
+        _mode = kAnimation_stop;
     }
     _am_buffptr = buffptr;
     _am_speed = amspeed;
     _am_mode = ammode;
     _am_count = amcount;
     _count_x = _count_y = 0;
-    _mode = kAnmiation_run;
+    _mode = kAnimation_run;
     xSemaphoreGive(_xSemaphore);
 }
 
-void LED_Display::displaybuff(uint8_t *buffptr, int8_t offsetx, int8_t offsety)
+void LED_Display::displaybuff(uint8_t *buffptr, int32_t offsetx, int32_t offsety)
 {
     uint16_t xsize = 0, ysize = 0;
     xsize = buffptr[0];
@@ -98,9 +99,8 @@ void LED_Display::displaybuff(uint8_t *buffptr, int8_t offsetx, int8_t offsety)
     offsetx = offsetx % xsize;
     offsety = offsety % ysize;
 
-    int8_t setdatax = (offsetx < 0) ? (-offsetx) : (xsize - offsetx);
-    int8_t setdatay = (offsety < 0) ? (-offsety) : (ysize - offsety);
-    xSemaphoreTake(_xSemaphore, portMAX_DELAY);
+    int16_t setdatax = (offsetx < 0) ? (-offsetx) : (xsize - offsetx);
+    int16_t setdatay = (offsety < 0) ? (-offsety) : (ysize - offsety);
     for (int x = 0; x < 5; x++)
     {
         for (int y = 0; y < 5; y++)
@@ -110,8 +110,6 @@ void LED_Display::displaybuff(uint8_t *buffptr, int8_t offsetx, int8_t offsety)
             _ledbuff[x + y * 5].raw[2] = buffptr[2 + ((setdatax + x) % xsize + ((setdatay + y) % ysize) * xsize) * 3 + 2];
         }
     }
-    xSemaphoreGive(_xSemaphore);
-    FastLED.setBrightness(20);
 }
 
 void LED_Display::setBrightness(uint8_t brightness)
@@ -146,7 +144,7 @@ void LED_Display::drawpix(uint8_t Number, CRGB Color)
 void LED_Display::clear()
 {
     xSemaphoreTake(_xSemaphore, portMAX_DELAY);
-    for (int8_t i = 0; i < 25; i++)
+    for (int8_t i = 0; i < NUM_LEDS; i++)
     {
         _ledbuff[i] = 0;
     }

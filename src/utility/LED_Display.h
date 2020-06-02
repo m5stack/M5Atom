@@ -28,26 +28,25 @@ public:
     enum
     {
         kStatic = 0,
-        kAnmiation_run,
-        kAnmiation_stop,
+        kAnimation_run,
+        kAnimation_stop,
     } Dismode;
     enum
     {
         kMoveRight = 0x01,
         kMoveLeft = 0x02,
         kMoveTop = 0x04,
-        kMoveButtom = 0x08,
+        kMoveBottom = 0x08,
     } Am_mode;
 
     /* data */
 public:
-    LED_Display(uint8_t LEDNumbre = 25);
+    LED_Display(uint8_t LEDNumber = NUM_LEDS);
     ~LED_Display();
     void run(void *data);
 
     void animation(uint8_t *buffptr, uint8_t amspeed, uint8_t ammode, int64_t amcount = -1);
-    void displaybuff(uint8_t *buffptr, int8_t offsetx = 0, int8_t offsety = 0);
-    void MoveDisPlayBuff(int8_t offsetx = 0, int8_t offsety = 0);
+    void displaybuff(uint8_t *buffptr, int32_t offsetx = 0, int32_t offsety = 0);
 
     void setBrightness(uint8_t brightness);
     void drawpix(uint8_t xpos, uint8_t ypos, CRGB Color);
