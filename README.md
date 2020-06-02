@@ -14,15 +14,6 @@ English | [中文](README_cn.md)
 
 ## PinMap
 
-**ATOM Lite**
-
-<img src="https://docs.m5stack.com/assets/img/product_pics/core/minicore/atom/atom_lite.jpg" alt="M5Atom Lite" height="350" style="margin-left:20px">
-
-**ATOM Matrix**
-
-<img src="https://docs.m5stack.com/assets/img/product_pics/core/minicore/atom/atom_matrix.jpg" alt="M5Atom Matrix" height="350" style="margin-left:20px">
-
-
 <table>
  <tr><td>Neo</td><td>GPIO27</td></tr>
  <tr><td>Btn</td><td>GPIO39</td></tr>
