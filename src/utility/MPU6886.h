@@ -82,12 +82,14 @@ class MPU6886 {
       void SetAccelFsr(Ascale scale);
 
       void getAhrsData(float *pitch,float *roll,float *yaw);
-
+      void getAttitude(double *pitch, double *roll);
     public:
       float aRes, gRes;
 
     private:
-
+        float _last_theta = 0;
+        float _last_phi = 0;
+        float _alpha = 0.5;
     private:
       void I2C_Read_NBytes(uint8_t driver_Addr, uint8_t start_Addr, uint8_t number_Bytes, uint8_t *read_Buffer);
       void I2C_Write_NBytes(uint8_t driver_Addr, uint8_t start_Addr, uint8_t number_Bytes, uint8_t *write_Buffer);

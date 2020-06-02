@@ -30,15 +30,15 @@
     void clear();
 
     Button:
-        M5.BtnA/B/C.read();
-        M5.BtnA/B/C.isPressed();
-        M5.BtnA/B/C.isReleased();
-        M5.BtnA/B/C.wasPressed();
-        M5.BtnA/B/C.wasReleased();
-        M5.BtnA/B/C.wasreleasedFor()
-        M5.BtnA/B/C.pressedFor(uint32_t ms);
-        M5.BtnA/B/C.releasedFor(uint32_t ms);
-        M5.BtnA/B/C.lastChange();
+        M5.Btn.read();
+        M5.Btn.isPressed();
+        M5.Btn.isReleased();
+        M5.Btn.wasPressed();
+        M5.Btn.wasReleased();
+        M5.Btn.wasreleasedFor()
+        M5.Btn.pressedFor(uint32_t ms);
+        M5.Btn.releasedFor(uint32_t ms);
+        M5.Btn.lastChange();
  */
 // #define ESP32
 
@@ -54,6 +54,7 @@
 #include "utility/MPU6886.h"
 #include "utility/Button.h"
 #include "utility/LED_Display.h"
+
 
 class M5Atom
 {
@@ -74,6 +75,7 @@ public:
 };
 
 extern M5Atom M5;
+
 
 #else
 #error “This library only supports boards with ESP32 processor.”

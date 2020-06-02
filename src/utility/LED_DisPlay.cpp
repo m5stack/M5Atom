@@ -58,7 +58,7 @@ void LED_Display::run(void *data)
                     _mode = kAnmiation_stop;
                 }
             }
-            displaybuff(_am_buffptr, _count_x, _count_y);
+            _displaybuff(_am_buffptr, _count_x, _count_y);
             delay(_am_speed);
             delay(10);
             xSemaphoreGive(_xSemaphore);
@@ -70,7 +70,31 @@ void LED_Display::run(void *data)
         }
         
         FastLED.show();
+        xSemaphoreGive(_xSemaphore);
     }
+}
+
+void LED_Display::_displaybuff(uint8_t *buffptr, int8_t offsetx, int8_t offsety)
+{
+    uint16_t xsize = 0, ysize = 0;
+    xsize = buffptr[0];
+    ysize = buffptr[1];
+
+    offsetx = offsetx % xsize;
+    offsety = offsety % ysize;
+
+    int8_t setdatax = (offsetx < 0) ? (-offsetx) : (xsize - offsetx);
+    int8_t setdatay = (offsety < 0) ? (-offsety) : (ysize - offsety);
+    for (int x = 0; x < 5; x++)
+    {
+        for (int y = 0; y < 5; y++)
+        {
+            _ledbuff[x + y * 5].raw[1] = buffptr[2 + ((setdatax + x) % xsize + ((setdatay + y) % ysize) * xsize) * 3 + 0];
+            _ledbuff[x + y * 5].raw[0] = buffptr[2 + ((setdatax + x) % xsize + ((setdatay + y) % ysize) * xsize) * 3 + 1];
+            _ledbuff[x + y * 5].raw[2] = buffptr[2 + ((setdatax + x) % xsize + ((setdatay + y) % ysize) * xsize) * 3 + 2];
+        }
+    }
+    FastLED.setBrightness(20);
 }
 
 void LED_Display::animation(uint8_t *buffptr, uint8_t amspeed, uint8_t ammode, int64_t amcount)
@@ -117,6 +141,7 @@ void LED_Display::displaybuff(uint8_t *buffptr, int8_t offsetx, int8_t offsety)
 void LED_Display::setBrightness(uint8_t brightness)
 {
     xSemaphoreTake(_xSemaphore, portMAX_DELAY);
+    brightness = ( brightness > 40 ) ? 40 : brightness;
     FastLED.setBrightness(brightness);
     xSemaphoreGive(_xSemaphore);
 }
@@ -134,7 +159,7 @@ void LED_Display::drawpix(uint8_t xpos, uint8_t ypos, CRGB Color)
 
 void LED_Display::drawpix(uint8_t Number, CRGB Color)
 {
-    if (Number >= 25)
+    if (Number >= NUM_LEDS)
     {
         return;
     }
@@ -143,10 +168,20 @@ void LED_Display::drawpix(uint8_t Number, CRGB Color)
     xSemaphoreGive(_xSemaphore);
 }
 
+void LED_Display::fillpix(CRGB Color)
+{
+    xSemaphoreTake(_xSemaphore, portMAX_DELAY);
+    for (int i = 0; i < NUM_LEDS; i++)
+    {
+        _ledbuff[i] = Color;
+    }
+    xSemaphoreGive(_xSemaphore);
+}
+
 void LED_Display::clear()
 {
     xSemaphoreTake(_xSemaphore, portMAX_DELAY);
-    for (int8_t i = 0; i < 25; i++)
+    for (int8_t i = 0; i < NUM_LEDS; i++)
     {
         _ledbuff[i] = 0;
     }

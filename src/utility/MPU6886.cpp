@@ -32,7 +32,7 @@ int MPU6886::Init(void){
   unsigned char tempdata[1];
   unsigned char regdata;
   
-  Wire1.begin(25,21);
+  Wire1.begin(25,21,100000);
   
   I2C_Read_NBytes(MPU6886_ADDRESS, MPU6886_WHOAMI, 1, tempdata);
   Serial.printf("%02X\r\n",tempdata[0]);
@@ -145,6 +145,32 @@ void MPU6886::getAhrsData(float *pitch,float *roll,float *yaw){
   
   MahonyAHRSupdateIMU(gyroX * DEG_TO_RAD, gyroY * DEG_TO_RAD, gyroZ * DEG_TO_RAD, accX, accY, accZ,pitch,roll,yaw);
 
+}
+
+void MPU6886::getAttitude(double *pitch, double *roll)
+{
+    float accX = 0;
+    float accY = 0;
+    float accZ = 0;
+
+    float gyroX = 0;
+    float gyroY = 0;
+    float gyroZ = 0;
+
+    getGyroData(&gyroX, &gyroY, &gyroZ);
+    getAccelData(&accX, &accY, &accZ);
+
+    if ((accX < 1) && (accX > -1))
+    {
+        *pitch = asin(-accX) * 57.295;
+    }
+    if (accZ != 0)
+    {
+        *roll = atan(accY / accZ) * 57.295;
+    }
+
+    ( *pitch ) = _alpha * ( *pitch ) + (1 - _alpha) * _last_theta;
+    ( *roll ) = _alpha * ( *roll ) + (1 - _alpha) * _last_phi;
 }
 
 void MPU6886::getGres(){

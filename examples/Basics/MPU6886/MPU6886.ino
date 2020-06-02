@@ -1,33 +1,80 @@
 #include "M5Atom.h"
 
-float accX = 0, accY = 0, accZ = 0;
-float gyroX = 0, gyroY = 0, gyroZ = 0;
-float temp = 0;
-bool IMU6886Flag = false;
+/* this Example only for M5Atom Matrix */
+
+CRGB led(0, 0, 0);
+double pitch, roll;
+double r_rand = 180 / PI;
 
 void setup()
 {
-    M5.begin(true, false, true);
+    M5.begin(true, true, true);
+    M5.IMU.Init();
+}
 
-    if (M5.IMU.Init() != 0)
-        IMU6886Flag = false;
-    else
-        IMU6886Flag = true;
+// R,G,B from 0-255, H from 0-360, S,V from 0-100
+
+CRGB HSVtoRGB(uint16_t h, uint16_t s, uint16_t v)
+{
+    CRGB ReRGB(0, 0, 0);
+    int i;
+    float RGB_min, RGB_max;
+    RGB_max = v * 2.55f;
+    RGB_min = RGB_max * (100 - s) / 100.0f;
+
+    i = h / 60;
+    int difs = h % 60;
+    float RGB_Adj = (RGB_max - RGB_min) * difs / 60.0f;
+
+    switch (i)
+    {
+    case 0:
+
+        ReRGB.r = RGB_max;
+        ReRGB.g = RGB_min + RGB_Adj;
+        ReRGB.b = RGB_min;
+        break;
+    case 1:
+        ReRGB.r = RGB_max - RGB_Adj;
+        ReRGB.g = RGB_max;
+        ReRGB.b = RGB_min;
+        break;
+    case 2:
+        ReRGB.r = RGB_min;
+        ReRGB.g = RGB_max;
+        ReRGB.b = RGB_min + RGB_Adj;
+        break;
+    case 3:
+        ReRGB.r = RGB_min;
+        ReRGB.g = RGB_max - RGB_Adj;
+        ReRGB.b = RGB_max;
+        break;
+    case 4:
+        ReRGB.r = RGB_min + RGB_Adj;
+        ReRGB.g = RGB_min;
+        ReRGB.b = RGB_max;
+        break;
+    default: // case 5:
+        ReRGB.r = RGB_max;
+        ReRGB.g = RGB_min;
+        ReRGB.b = RGB_max - RGB_Adj;
+        break;
+    }
+
+    return ReRGB;
 }
 
 void loop()
 {
+    delay(50);
+    M5.IMU.getAttitude(&pitch, &roll);
+    double arc = atan2(pitch, roll) * r_rand + 180;
+    double val = sqrt(pitch * pitch + roll * roll);
+    Serial.printf("%.2f,%.2f,%.2f,%.2f\n", pitch, roll, arc, val);
 
-    if (IMU6886Flag == true)
-    {
-        M5.IMU.getGyroData(&gyroX, &gyroY, &gyroZ);
-        M5.IMU.getAccelData(&accX, &accY, &accZ);
-        M5.IMU.getTempData(&temp);
-
-        Serial.printf("%.2f,%.2f,%.2f o/s \r\n", gyroX, gyroY, gyroZ);
-        Serial.printf("%.2f,%.2f,%.2f mg\r\n", accX * 1000, accY * 1000, accZ * 1000);
-        Serial.printf("Temperature : %.2f C \r\n", temp);
-    }
-    delay(500);
+    val = (val * 6) > 100 ? 100 : val * 6;
+    led = HSVtoRGB(arc, val, 100);
+    M5.dis.fillpix(led);
     M5.update();
+;
 }

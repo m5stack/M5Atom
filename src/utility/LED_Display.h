@@ -43,6 +43,7 @@ public:
 public:
     LED_Display(uint8_t LEDNumbre = 25);
     ~LED_Display();
+
     void run(void *data);
 
     void animation(uint8_t *buffptr, uint8_t amspeed, uint8_t ammode, int64_t amcount = -1);
@@ -52,7 +53,11 @@ public:
     void setBrightness(uint8_t brightness);
     void drawpix(uint8_t xpos, uint8_t ypos, CRGB Color);
     void drawpix(uint8_t Number, CRGB Color);
+    void fillpix(CRGB Color);
     void clear();
+
+private:
+    void _displaybuff(uint8_t *buffptr, int8_t offsetx = 0, int8_t offsety = 0);
 };
 
 #endif
