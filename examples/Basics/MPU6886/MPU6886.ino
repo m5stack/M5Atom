@@ -1,6 +1,16 @@
+/****************************************************************
+ * 
+ * This Example is used to test mpu6886
+ * This Example only for M5Atom Matrix!
+ * 
+ * Arduino tools Setting 
+ * -board : M5StickC
+ * -Upload Speed: 115200 / 750000 / 1500000
+ * 
+****************************************************************/
 #include "M5Atom.h"
 
-/* this Example only for M5Atom Matrix */
+
 
 CRGB led(0, 0, 0);
 double pitch, roll;

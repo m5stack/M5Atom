@@ -1,3 +1,12 @@
+/****************************************************************
+ * 
+ * This Example is used to test leds
+ * 
+ * Arduino tools Setting 
+ * -board : M5StickC
+ * -Upload Speed: 115200 / 750000 / 1500000
+ * 
+****************************************************************/
 #include "M5Atom.h"
 
 void setup()
