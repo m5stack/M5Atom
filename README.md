@@ -69,7 +69,7 @@ English | [中文](README_cn.md)
 
 ## Member Function Documentation
 
-<font color=#0099ff size=4>void animation(uint8_t *buffptr, uint8_t amspeed, uint8_t ammode, int64_t amcount = -1)</font>
+        void animation(uint8_t *buffptr, uint8_t amspeed, uint8_t ammode, int64_t amcount = -1)
 
 ---
 
@@ -84,10 +84,10 @@ Start moving animation of an image
 <tr><td>amcount</td><td>int64_t</td><td>-1 ~ MAXSIZE of int64_t</td><td>-1</td><td>The distance the image moves (pixels)</td></tr>
 </table>
 
-**return value**
+**return value**  
 null
 
-<font color=#0099ff size=4>void displaybuff(uint8_t *buffptr, int8_t offsetx = 0, int8_t offsety = 0)</font>
+        void displaybuff(uint8_t *buffptr, int8_t offsetx = 0, int8_t offsety = 0)
 
 ---
 
@@ -101,10 +101,10 @@ Display an image
 <tr><td>offsety</td><td>uint8_t</td><td>-127 ~ 127 </td><td>0</td><td>Vertical image offset</td></tr>
 </table>
 
-**return value**
+**return value**  
 null
 
-<font color=#0099ff size=4>void MoveDisPlayBuff(int8_t offsetx = 0, int8_t offsety = 0)</font>
+        void MoveDisPlayBuff(int8_t offsetx = 0, int8_t offsety = 0)
 
 ---
 
@@ -117,26 +117,26 @@ Move the image data in the display buff
 <tr><td>offsety</td><td>int8_t</td><td>-127 ~ 127 </td><td>0</td><td>Vertical image offset</td></tr>
 </table>
 
-**return value**
+**return value**  
 null
 
-<font color=#0099ff size=4>void setBrightness(uint8_t brightness)</font>
+        void setBrightness(uint8_t brightness)
 
 ---
 
 Set the Leds Brightness   
 <font color=#ffbf00>Warning: It is not recommended to set the LED brightness to 100. Setting the LED brightness to 100 may cause overheating</font>
 
-**parameter list**
+**parameter list**  
 <table>
 <tr><td>name</td><td>type</td><td>range</td><td>default</td><td>description</td></tr>
 <tr><td>brightness</td><td>uint8_t</td><td> 0 ~ 100 </td><td>-</td><td>Brightness of Leds </td></tr>
 </table>
 
-**return value**
+**return value**  
 null
 
-<font color=#0099ff size=4>void drawpix(uint8_t xpos, uint8_t ypos, CRGB Color)</font>
+        void drawpix(uint8_t xpos, uint8_t ypos, CRGB Color)
 
 ---
 
@@ -150,10 +150,10 @@ Set the color of a LED in coordinate mode
 <tr><td>Color</td><td>CRGB</td><td>-</td><td>-</td><td>Color of Led </td></tr>
 </table>
 
-**return value**
+**return value**  
 null
 
-<font color=#0099ff size=4>void drawpix(uint8_t Number, CRGB Color)</font>
+        void drawpix(uint8_t Number, CRGB Color)
 
 ---
 
@@ -166,10 +166,10 @@ Set the color of a LED
 <tr><td>Color</td><td>CRGB</td><td>-</td><td>-</td><td>Color of Led </td></tr>
 </table>
 
-**return value**
+**return value**  
 null
 
-<font color=#0099ff size=4>void fillpix(CRGB Color)</font>
+        void fillpix(CRGB Color)
 
 ---
 
@@ -181,17 +181,17 @@ Set the color of all LEDs
 <tr><td>Color</td><td>CRGB</td><td>-</td><td>-</td><td>Color of Leds </td></tr>
 </table>
 
-**return value**
+**return value**  
 null
 
-<font color=#0099ff size=4>void clear()</font>
+        void clear()
 
 ---
 
  Close all of LEDs
 
-**parameter list**
+**parameter list**  
 null
 
-**return value**
+**return value**  
 null
