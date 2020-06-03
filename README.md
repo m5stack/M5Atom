@@ -69,9 +69,9 @@ English | [中文](README_cn.md)
 
 ## Member Function Documentation
 
-        void animation(uint8_t *buffptr, uint8_t amspeed, uint8_t ammode, int64_t amcount = -1)
-
 ---
+
+        void animation(uint8_t *buffptr, uint8_t amspeed, uint8_t ammode, int64_t amcount = -1)
 
 Start moving animation of an image
 
@@ -87,9 +87,9 @@ Start moving animation of an image
 **return value**  
 null
 
-        void displaybuff(uint8_t *buffptr, int8_t offsetx = 0, int8_t offsety = 0)
-
 ---
+
+        void displaybuff(uint8_t *buffptr, int8_t offsetx = 0, int8_t offsety = 0)
 
 Display an image 
 
@@ -104,9 +104,9 @@ Display an image
 **return value**  
 null
 
-        void MoveDisPlayBuff(int8_t offsetx = 0, int8_t offsety = 0)
-
 ---
+
+        void MoveDisPlayBuff(int8_t offsetx = 0, int8_t offsety = 0)
 
 Move the image data in the display buff
 
@@ -120,9 +120,9 @@ Move the image data in the display buff
 **return value**  
 null
 
-        void setBrightness(uint8_t brightness)
-
 ---
+
+        void setBrightness(uint8_t brightness)
 
 Set the Leds Brightness   
 <font color=#ffbf00>Warning: It is not recommended to set the LED brightness to 100. Setting the LED brightness to 100 may cause overheating</font>
@@ -136,9 +136,9 @@ Set the Leds Brightness
 **return value**  
 null
 
-        void drawpix(uint8_t xpos, uint8_t ypos, CRGB Color)
-
 ---
+
+        void drawpix(uint8_t xpos, uint8_t ypos, CRGB Color)
 
 Set the color of a LED in coordinate mode
 
@@ -153,9 +153,9 @@ Set the color of a LED in coordinate mode
 **return value**  
 null
 
-        void drawpix(uint8_t Number, CRGB Color)
-
 ---
+
+        void drawpix(uint8_t Number, CRGB Color)
 
 Set the color of a LED
 
@@ -169,9 +169,9 @@ Set the color of a LED
 **return value**  
 null
 
-        void fillpix(CRGB Color)
-
 ---
+
+        void fillpix(CRGB Color)
 
 Set the color of all LEDs
 
@@ -184,9 +184,9 @@ Set the color of all LEDs
 **return value**  
 null
 
-        void clear()
-
 ---
+
+        void clear()
 
  Close all of LEDs
 
