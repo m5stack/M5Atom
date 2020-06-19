@@ -1,6 +1,8 @@
 #ifndef _LED_DISPLAY_H_
 #define _LED_DISPLAY_H_
 
+#define FASTLED_INTERNAL
+
 #include <FastLED.h>
 #include "utility/Task.h"
 #include <freertos/FreeRTOS.h>

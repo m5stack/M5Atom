@@ -47,6 +47,8 @@
 
 #if defined(ESP32)
 
+#define FASTLED_INTERNAL
+
 #include <Arduino.h>
 #include <Wire.h>
 #include <FastLED.h>
