@@ -28,7 +28,7 @@ void M5Atom::begin(bool SerialEnable , bool I2CEnable , bool DisplayEnable )
 		Serial.begin(115200);
 		Serial.flush();
 		delay(50);
-		Serial.print("M5Atom initializing...");
+		Serial.println("M5Atom initializing...OK");
 	}
 
 	if( DisplayEnable )
