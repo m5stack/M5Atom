@@ -153,7 +153,7 @@ void LED_Display::drawpix(uint8_t xpos, uint8_t ypos, CRGB Color)
         return;
     }
     xSemaphoreTake(_xSemaphore, portMAX_DELAY);
-    _ledbuff[xpos + ypos * 5] = Color;
+    _ledbuff[xpos + ypos * 5] = ((Color & 0xff000) >> 8) | (Color & 0x00ff00 << 8) | (Color & 0x0000ff) ;
     xSemaphoreGive(_xSemaphore);
 }
 
@@ -164,7 +164,7 @@ void LED_Display::drawpix(uint8_t Number, CRGB Color)
         return;
     }
     xSemaphoreTake(_xSemaphore, portMAX_DELAY);
-    _ledbuff[Number] = Color;
+    _ledbuff[Number] = ((Color & 0xff000) >> 8) | (Color & 0x00ff00 << 8) | (Color & 0x0000ff) ;
     xSemaphoreGive(_xSemaphore);
 }
 
