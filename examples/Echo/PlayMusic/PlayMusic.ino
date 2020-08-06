@@ -84,10 +84,10 @@ size_t bytes_written;
 
 void loop()
 {
-    if( M5.Btn.wasPressed())
-    {
-        Spakeflag = ( Spakeflag == true )? false : true;
-    }
+    //if( M5.Btn.wasPressed())
+    //{
+    //    Spakeflag = ( Spakeflag == true )? false : true;
+    //}
 
     if( Spakeflag )
     {

@@ -47,15 +47,17 @@
 
 #if defined(ESP32)
 
+#define FASTLED_INTERNAL
+
 #include <Arduino.h>
 #include <Wire.h>
 #include <FastLED.h>
 
 #include "utility/MPU6886.h"
 #include "utility/Button.h"
-#include "utility/LED_Display.h"
+#include "utility/LED_DisPlay.h"
 
-
+#define FASTLED_INTERNAL
 class M5Atom
 {
 private:
@@ -66,7 +68,7 @@ public:
 	~M5Atom();
 
 	MPU6886 IMU;
-	LED_Display dis;
+    LED_DisPlay dis;
 
 	Button Btn = Button(39, true, 10);
 
