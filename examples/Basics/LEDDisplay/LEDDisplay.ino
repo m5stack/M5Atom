@@ -20,7 +20,7 @@ void setup()
 {
     M5.begin(true, false, true);
     delay(50);
-    M5.dis.animation((uint8_t *)AtomImageData, 200, LED_Display::kMoveLeft, 18);
+    M5.dis.animation((uint8_t *)AtomImageData, 200, LED_DisPlay::kMoveLeft, 18);
 }
 
 void loop()
