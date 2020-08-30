@@ -16,7 +16,7 @@ void LED_DisPlay::run(void *data)
 {
     data = nullptr;
 
-    for (int num = 0; num < 25; num++)
+    for (int num = 0; num < NUM_LEDS; num++)
     {
         _ledbuff[num] = 0x000000;
     }
