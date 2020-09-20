@@ -9,7 +9,7 @@
 #define NUM_LEDS 25
 #define DATA_PIN 27
 
-class LED_Display : public Task
+class LED_DisPlay : public Task
 {
 private:
     CRGB _ledbuff[NUM_LEDS];
@@ -30,6 +30,7 @@ public:
         kStatic = 0,
         kAnmiation_run,
         kAnmiation_stop,
+        kAnmiation_frush,
     } Dismode;
     enum
     {
@@ -39,10 +40,13 @@ public:
         kMoveButtom = 0x08,
     } Am_mode;
 
+    uint8_t Brightness = 40;
+
     /* data */
 public:
-    LED_Display(uint8_t LEDNumber = 25);
+    LED_Display(uint8_t LEDNumber = NUM_LEDS);
     ~LED_Display();
+    
     void run(void *data);
 
     void animation(uint8_t *buffptr, uint8_t amspeed, uint8_t ammode, int64_t amcount = -1);
@@ -52,7 +56,11 @@ public:
     void setBrightness(uint8_t brightness);
     void drawpix(uint8_t xpos, uint8_t ypos, CRGB Color);
     void drawpix(uint8_t Number, CRGB Color);
+    void fillpix(CRGB Color);
     void clear();
+
+private:
+    void _displaybuff(uint8_t *buffptr, int8_t offsetx = 0, int8_t offsety = 0);
 };
 
 #endif
