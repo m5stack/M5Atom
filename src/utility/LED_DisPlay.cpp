@@ -1,10 +1,9 @@
 #include "LED_DisPlay.h"
 
-LED_DisPlay::LED_DisPlay(uint8_t LEDNumbre)
+LED_Display::LED_Display(uint8_t LEDNumber)
 {
-    FastLED.addLeds<WS2812, DATA_PIN>(_ledbuff, LEDNumbre);
     _xSemaphore = xSemaphoreCreateMutex();
-    _numberled = LEDNumbre;
+    _numberled = LEDNumber;
 }
 
 LED_DisPlay::~LED_DisPlay()
@@ -14,6 +13,7 @@ LED_DisPlay::~LED_DisPlay()
 
 void LED_DisPlay::run(void *data)
 {
+    FastLED.addLeds<WS2812, DATA_PIN>(_ledbuff, _numberled);
     data = nullptr;
 
     for (int num = 0; num < NUM_LEDS; num++)
