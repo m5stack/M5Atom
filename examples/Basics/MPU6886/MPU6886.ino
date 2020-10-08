@@ -76,11 +76,12 @@ CRGB HSVtoRGB(uint16_t h, uint16_t s, uint16_t v)
 
 void loop()
 {
-    delay(50);
+    delay(250);
+
     M5.IMU.getAttitude(&pitch, &roll);
     double arc = atan2(pitch, roll) * r_rand + 180;
     double val = sqrt(pitch * pitch + roll * roll);
-    Serial.printf("%.2f,%.2f,%.2f,%.2f\n", pitch, roll, arc, val);
+    Serial.printf("pitch: %.2f, roll: %.2f, arc: %.2f, dist: %.2f\n", pitch, roll, arc, val);
 
     val = (val * 6) > 100 ? 100 : val * 6;
     led = HSVtoRGB(arc, val, 100);
