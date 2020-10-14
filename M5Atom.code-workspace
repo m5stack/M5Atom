@@ -1,0 +1,21 @@
+{
+	"folders": [
+        {
+            "path": "."
+        },
+        {
+            "path": "examples\\Basics\\LEDDisplay"
+        },
+        {
+            "path": "examples\\Basics\\MPU6886"
+        },
+        {
+            "path": "examples\\Basics\\SpiritLevel"
+        }
+    ],
+    "settings": {
+        "files.associations": {
+            "cmath": "cpp"
+        }
+    }
+}
