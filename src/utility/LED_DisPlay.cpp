@@ -1,15 +1,20 @@
 #include "LED_DisPlay.h"
 
-LED_DisPlay::LED_DisPlay(uint8_t LEDNumbre)
+LED_DisPlay::LED_DisPlay()
 {
-    FastLED.addLeds<WS2812, DATA_PIN>(_ledbuff, LEDNumbre);
-    _xSemaphore = xSemaphoreCreateMutex();
-    _numberled = LEDNumbre;
+    
 }
 
 LED_DisPlay::~LED_DisPlay()
 {
 
+}
+
+void LED_DisPlay::begin(uint8_t LEDNumbre)
+{
+    FastLED.addLeds<WS2812, DATA_PIN>(_ledbuff, LEDNumbre);
+    _xSemaphore = xSemaphoreCreateMutex();
+    _numberled = LEDNumbre;
 }
 
 void LED_DisPlay::run(void *data)
@@ -63,7 +68,7 @@ void LED_DisPlay::run(void *data)
             delay(_am_speed);
 
         }
-        else if( kAnmiation_frush )
+        else if( _mode == kAnmiation_frush )
         {
             _mode = kAnmiation_stop;
             FastLED.show();

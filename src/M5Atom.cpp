@@ -33,6 +33,7 @@ void M5Atom::begin(bool SerialEnable , bool I2CEnable , bool DisplayEnable )
 
 	if( DisplayEnable )
 	{
+        dis.begin();
 		dis.setTaskName("LEDs");
 		dis.setTaskPriority(2);
 		dis.start();
