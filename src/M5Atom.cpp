@@ -5,25 +5,24 @@
 
 M5Atom::M5Atom()
 {
-
 }
 
 M5Atom::~M5Atom()
 {
-
 }
 
-void M5Atom::begin(bool SerialEnable , bool I2CEnable , bool DisplayEnable )
+void M5Atom::begin(bool SerialEnable, bool I2CEnable, bool DisplayEnable)
 {
-	if( _isInited ) return;
+	if (_isInited)
+		return;
 
 	_isInited = true;
 
-	if( I2CEnable )
+	if (I2CEnable)
 	{
-		Wire.begin(25,21,10000);
+		Wire.begin(25, 21, 10000);
 	}
-	if( SerialEnable )
+	if (SerialEnable)
 	{
 		Serial.begin(115200);
 		Serial.flush();
@@ -31,16 +30,14 @@ void M5Atom::begin(bool SerialEnable , bool I2CEnable , bool DisplayEnable )
 		Serial.println("M5Atom initializing...OK");
 	}
 
-	if( DisplayEnable )
+	if (DisplayEnable)
 	{
-        dis.begin();
+		dis.begin();
 		dis.setTaskName("LEDs");
 		dis.setTaskPriority(2);
+		M5.dis.setCore(1);
 		dis.start();
 	}
-
-
-
 }
 
 void M5Atom::update()
