@@ -30,9 +30,9 @@ public:
     enum
     {
         kStatic = 0,
-        kAnimiation_run,
-        kAnimiation_stop,
-        kAnimiation_frush,
+        kAnimation_run,
+        kAnimation_stop,
+        kAnimation_frush,
     } Dismode;
     enum
     {
@@ -55,8 +55,7 @@ public:
 
     void animation(uint8_t *buffptr, uint8_t amspeed, uint8_t ammode, int64_t amcount = -1);
     void displaybuff(uint8_t *buffptr, int32_t offsetx = 0, int32_t offsety = 0);
-    // void MoveDisPlayBuff(int8_t offsetx = 0, int8_t offsety = 0);
-
+    
     void setBrightness(uint8_t brightness);
     void drawpix(uint8_t xpos, uint8_t ypos, CRGB Color);
     void drawpix(uint8_t Number, CRGB Color);
