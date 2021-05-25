@@ -35,7 +35,6 @@ int MPU6886::Init(void){
   Wire1.begin(25,21,100000);
   
   I2C_Read_NBytes(MPU6886_ADDRESS, MPU6886_WHOAMI, 1, tempdata);
-  Serial.printf("%02X\r\n",tempdata[0]);
   if(tempdata[0] != 0x19)
     return -1;
   delay(1);
