@@ -32,6 +32,6 @@ void loop(){
     // Moves an AtomImageData 25 steps in the direction of a kmoveLeft at the specified speed of 200
     //Notice: Speed range 0~255
     //将某个图案AtomImageData以指定速度200向指定方向kMoveLeft移动25步(速度范围0~255)
-    M5.dis.animation((uint8_t *)AtomImageData, 200, LED_DisPlay::kMoveLeft, 18);
+    M5.dis.animation((uint8_t *)AtomImageData, 200, LED_DisPlay::kMoveLeft, 25);
     delay(5250);
 }

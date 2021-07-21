@@ -2,7 +2,7 @@
 
 LED_DisPlay::LED_DisPlay()
 {
-    
+
 }
 
 LED_DisPlay::~LED_DisPlay()
@@ -33,6 +33,8 @@ void LED_DisPlay::run(void *data)
         xSemaphoreTake(_xSemaphore, portMAX_DELAY);
         if (_mode == kAnmiation_run)
         {
+            _displaybuff(_am_buffptr, _count_x, _count_y);
+            FastLED.show();
             if ((_am_mode & kMoveRight) || (_am_mode & kMoveLeft))
             {
                 if (_am_mode & kMoveRight)
@@ -63,8 +65,6 @@ void LED_DisPlay::run(void *data)
                     _mode = kAnmiation_stop;
                 }
             }
-            _displaybuff(_am_buffptr, _count_x, _count_y);
-            FastLED.show();
             delay(_am_speed);
 
         }
