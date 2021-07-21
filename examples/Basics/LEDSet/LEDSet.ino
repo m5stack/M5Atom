@@ -52,5 +52,5 @@ void loop(){
     }
 
     delay(50);
-    M5.update();    //Read the press state of the key.  读取按键按下状 
+    M5.update();    //Read the press state of the key.  读取按键按下状态 
 }
