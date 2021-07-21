@@ -158,7 +158,7 @@ void AtomFly::I2C_Write_NBytes(uint8_t driver_Addr, uint8_t start_Addr, uint8_t 
     Wire1.write(*write_Buffer);
     Wire1.endTransmission();
 }
-
+//加速度计
 void AtomFly::getAccelAdc(int16_t *ax, int16_t *ay, int16_t *az)
 {
 
@@ -169,6 +169,7 @@ void AtomFly::getAccelAdc(int16_t *ax, int16_t *ay, int16_t *az)
     *ay = ((int16_t)buf[2] << 8) | buf[3];
     *az = ((int16_t)buf[4] << 8) | buf[5];
 }
+//陀螺仪
 void AtomFly::getGyroAdc(int16_t *gx, int16_t *gy, int16_t *gz)
 {
 
