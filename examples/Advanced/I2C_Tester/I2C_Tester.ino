@@ -16,10 +16,10 @@
 
 void setup()
 {
-  M5.begin(true,true,true); //Init M5Core2(Initialization of external I2C is also included).  初始化M5Core2(初始化外部I2C也包含在内)
+  M5.begin(true,true,true); //Init M5Atom(Initialization of external I2C is also included).  M5Atom(初始化外部I2C也包含在内)
   //Wire.begin(21, 22); //Detect internal I2C, if this sentence is not added, it will detect external I2C.  检测内部I2C,若不加此句为检测外部I2C
   Wire.begin(26,32);
-  Serial.println("M5Core2 I2C Tester"); //Print a string on the screen.  在屏幕上打印字符串
+  Serial.println("M5Atom I2C Tester"); //Print a string on the screen.  在屏幕上打印字符串
   delay(3000);
 }
 
