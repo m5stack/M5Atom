@@ -21,7 +21,7 @@ Adafruit_BMP280 bme;
  
 void setup() {
   M5.begin(); //Init M5Atom.  初始化 M5Atom
-  Wire.begin(26,32); //Wire init, adding the I2C bus.  Wire初始化, 加入i2c总线
+  Wire.begin(26,32);  //Initialize pin 26,32.  初始化26,32引脚
   while (!bme.begin(0x76)){ //Init this sensor,True if the init was successful, otherwise false.   初始化传感器,如果初始化成功返回1
     Serial.println("Could not find a valid BMP280 sensor, check wiring!");
   }
