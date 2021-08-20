@@ -26,7 +26,7 @@ float pressure = 0.0;
 
 void setup() {
   M5.begin(); //Init M5Atom.  初始化 M5Atom
-  Wire.begin(26,32);  //Initialize pin 26,32.  初始化26,32引脚
+  Wire.begin(26,32);  //Initialize pin 26,32.  初始化32,33引脚
   Serial.println(F("ENV Unit(SHT30 and BMP280) test...\n"));
 }
 
