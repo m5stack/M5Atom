@@ -1,18 +1,6 @@
-/*
-*******************************************************************************
-* Copyright (c) 2021 by M5Stack
-*                  Equipped with Atom-Lite/Matrix sample source code
-*                          配套  Atom-Lite/Matrix 示例源代码
-* Visit the website for more information：https://docs.m5stack.com/en/atom/atomhub_switch
-* 获取更多资料请访问：https://docs.m5stack.com/zh_CN/atom/atomhub_switch
-*
-* describe: Switch.
-* date：2021/9/1
-*******************************************************************************
-  Press the key control switch1 when breathing with pink light, and press the key control switch 2 when breathing with blue light
-  在粉色光呼吸时按键控制开关1，在蓝光呼吸时按键控制开关2
+/*Press the key control switch1 when breathing with pink light, 
+ *and press the key control switch 2 when breathing with blue light
 */
-
 #include <M5Atom.h>
 
 #define SWITCH1 22

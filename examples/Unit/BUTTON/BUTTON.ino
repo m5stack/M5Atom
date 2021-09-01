@@ -9,7 +9,7 @@
 * describe：Button.  按键
 * date：2021/8/9
 *******************************************************************************
-  Please connect to Port,Read the button status of BUTTON Unit and display it on the Serial
+  Please connect to Port,Read the button status of BUTTON Unit and display it on the screen
 
   请连接端口,读取按键的状态并在显示屏上显示
 */

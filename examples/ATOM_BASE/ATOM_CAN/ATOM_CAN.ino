@@ -1,18 +1,8 @@
 /*
-*******************************************************************************
-* Copyright (c) 2021 by M5Stack
-*                  Equipped with Atom-Lite/Matrix sample source code
-*                          配套  Atom-Lite/Matrix 示例源代码
-* Visit the website for more information：https://docs.m5stack.com/en/atom/atom_can
-* 获取更多资料请访问：https://docs.m5stack.com/zh_CN/atom/atom_can
-*
-* describe: Can.
-* date：2021/9/1
-*******************************************************************************
-  Use ATOM CAN to send and receive information, delete the macro definition `CAN_SENDER` to compile the receiving part of the program, and enable the macro definition `CAN_SENDER` to compile the sending part of the program.
-  You need to use two ATOM CANs for testing
-  使用ATOM CAN发送和接收信息，删除宏定义`Can_SENDER`编译程序的接收部分，启用宏定义`Can_SENDER`编译程序的发送部分。
-  你需要使用两个Atom Can进行测试。
+    Description: 
+    Use ATOM CAN to send and receive information, delete the macro definition `CAN_SENDER` to compile the receiving part of the program, 
+    and enable the macro definition `CAN_SENDER` to compile the sending part of the program.
+    You need to use two ATOM CANs for testing
 */
 
 
@@ -21,15 +11,15 @@
 #include "CAN_config.h"
 
 
-#define CAN_UNIT
+#define CAN_UNIT     
 #define CAN_SENDER
 
 #define CAN_MSG_ID      0x001
 
-CAN_device_t CAN_cfg;             // CAN Config.  CAN配置。
-unsigned long previousMillis = 0; // will store last time a CAN Message was send.  将存储上次发送CAN消息的时间。
-const int   interval = 80;        // interval at which send CAN Messages (milliseconds).  发送CAN消息的间隔(毫秒)。
-const int   rx_queue_size = 10;     // Receive Queue size.  接收队列大小
+CAN_device_t CAN_cfg;             // CAN Config
+unsigned long previousMillis = 0; // will store last time a CAN Message was send
+const int   interval = 80;        // interval at which send CAN Messages (milliseconds)
+const int   rx_queue_size = 10;     // Receive Queue size
 int         LedNumberCount = 0;
 int         waitCANData = 0;
 

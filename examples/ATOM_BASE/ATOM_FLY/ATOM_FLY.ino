@@ -1,16 +1,5 @@
-/*
-*******************************************************************************
-* Copyright (c) 2021 by M5Stack
-*                  Equipped with Atom-Lite/Matrix sample source code
-*                          配套  Atom-Lite/Matrix 示例源代码
-* Visit the website for more information：https://docs.m5stack.com/en/products
-* 获取更多资料请访问：https://docs.m5stack.com/zh_CN/products
-*
-* describe: FLY.
-* date：2021/9/1
-*******************************************************************************
-  Press the Atom button, test the propeller rotates in turn, and the serial monitor outputs the IMU status
-*/
+//Press the Atom button, test the propeller rotates in turn, and the serial monitor outputs the IMU status
+
 
 #include <M5Atom.h>
 #include "AtomFly.h"

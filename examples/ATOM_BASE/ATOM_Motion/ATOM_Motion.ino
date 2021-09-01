@@ -1,16 +1,7 @@
 /*
-*******************************************************************************
-* Copyright (c) 2021 by M5Stack
-*                  Equipped with Atom-Lite/Matrix sample source code
-*                          配套  Atom-Lite/Matrix 示例源代码
-* Visit the website for more information：https://docs.m5stack.com/en/atom/atom_motion
-* 获取更多资料请访问：https://docs.m5stack.com/zh_CN/atom/atom_motion
-*
-* describe: Motion. 直流电机
-* date：2021/9/1
-*******************************************************************************
-  Use ATOM Motion to control 4 channel servo and 2 channel DC motor,press btn to change the DC motor direction
-  用ATOM Motion控制4路伺服和2路直流电机，按下按键改变直流电机方向
+    Description: 
+    Use ATOM Motion to control 4 channel servo and 2 channel DC motor
+    press btn to change the DC motor direction
 */
 
 #include <M5Atom.h>
