@@ -9,7 +9,7 @@
 * describe：ENVII_DH12_BMP280.  环境传感器
 * date：2021/8/17
 *******************************************************************************
-  Please connect to Port A,Read temperature, humidity and atmospheric pressure and display them on the display screen
+  Please connect to Port A,Read temperature, humidity and atmospheric pressure and display them on the display Serial
   请连接端口A,读取温度、湿度和大气压强并在显示屏上显示
 */
 

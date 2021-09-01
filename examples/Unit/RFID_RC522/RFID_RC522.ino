@@ -9,8 +9,8 @@
 * describe: RFID.
 * date：2021/8/19
 *******************************************************************************
-  Please connect to Port A,Use the RFID Unit to read the Fudan card ID and display the ID on the screen.
-  请连接端口A,使用RFID Unit 读取ID卡并在屏幕上显示。
+  Please connect to Port,Use the RFID Unit to read the Fudan card ID and display the ID on the Serial.
+  请连接端口,使用RFID Unit 读取ID卡并在串口上显示。
 */
 
 #include <M5Atom.h>

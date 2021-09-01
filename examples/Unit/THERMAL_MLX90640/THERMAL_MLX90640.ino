@@ -9,8 +9,8 @@
 * describe: thermal.
 * date：2021/8/31
 *******************************************************************************
-  Please connect to Port, Read the THERMAL Unit (MLX90640 IR array) temperature pixels and display it on the screen.
-  请连接端口, 读取热单元(MLX90640红外阵列)温度像素，并显示在屏幕上。
+  Please connect to Port, Read the THERMAL Unit (MLX90640 IR array) temperature pixels and display it on the Serial.
+  请连接端口, 读取热单元(MLX90640红外阵列)温度像素，并显示在串口上。
 */
 #include <M5Atom.h>
 
@@ -31,7 +31,7 @@ float pixels_2[COLS_2 * ROWS_2];
 float reversePixels[COLS * ROWS];
 
 byte speed_setting = 2 ; // High is 1 , Low is 2
-bool reverseScreen = false;
+bool reverseSerial = false;
 
 #define INTERPOLATED_COLS 32
 #define INTERPOLATED_ROWS 32
@@ -40,13 +40,13 @@ static float mlx90640To[COLS * ROWS];
 paramsMLX90640 mlx90640;
 float signedMag12ToFloat(uint16_t val);
 
-//low range of the sensor (this will be blue on the screen).  传感器的低量程(屏幕上显示为蓝色)
+//low range of the sensor (this will be blue on the Serial).  传感器的低量程(串口上显示为蓝色)
 int MINTEMP = 24; // For color mapping.  颜色映射
 int min_v = 24; //Value of current min temp.  当前最小温度的值
 int min_cam_v = -40; // Spec in datasheet.  规范的数据表
 
 
-//high range of the sensor (this will be red on the screen).  传感器的高量程(屏幕上显示为红色)
+//high range of the sensor (this will be red on the Serial).  传感器的高量程(串口上显示为红色)
 int MAXTEMP = 35; // For color mapping.  颜色映射
 int max_v = 35; //Value of current max temp.  当前最大温度值
 int max_cam_v = 300; // Spec in datasheet.  规范的数据表
@@ -172,7 +172,7 @@ void loop(){
   }
 
   //Reverse image (order of Integer array).  反向图像(整数数组的顺序)
-  if (reverseScreen == 1)
+  if (reverseSerial == 1)
   {
     for (int x = 0 ; x < pixelsArraySize ; x++)
     {
@@ -189,7 +189,7 @@ void loop(){
   float dest_2d[INTERPOLATED_ROWS * INTERPOLATED_COLS];
   int ROWS_i,COLS_j;
 
-  if (reverseScreen == 1)
+  if (reverseSerial == 1)
   {
     // ** reversePixels  反向像素
     interpolate_image(reversePixels, ROWS, COLS, dest_2d, INTERPOLATED_ROWS, INTERPOLATED_COLS);

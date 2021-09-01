@@ -9,8 +9,8 @@
 * describe：DAC_MCP4725.  数模转换
 * date：2021/8/16
 *******************************************************************************
-  Please connect to Port A,Use DAC Unit to output 0 ~ 3.3V voltage with an accuracy of 12 bits.
-  请连接端口A,使用DAC Unit 输出12位精度的0 ~ 3.3V电压。
+  Please connect to Port ,Use DAC Unit to output 0 ~ 3.3V voltage with an accuracy of 12 bits.
+  请连接端口,使用DAC Unit 输出12位精度的0 ~ 3.3V电压。
 */
 
 #include <M5Atom.h>
@@ -23,7 +23,7 @@
 Adafruit_MCP4725 dac;
 
 void setup(void) {
-  M5.begin(true,false,true); //Init M5Atom(Init serial and display).  初始化 M5Atom(初始化串口和屏幕)
+  M5.begin(true,false,true); //Init M5Atom(Init serial and display).  初始化 M5Atom(初始化串口和串口)
   Serial.print("\nDAC MCP4725 demo.");
 
   dac.begin(0x60);  //Setups the hardware address and checks the DAC was found.  设置硬件地址并检查是否找到DAC

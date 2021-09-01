@@ -9,9 +9,9 @@
 * describe: Weight.
 * date：2021/8/20
 *******************************************************************************
-  Please connect to Port B,Use WEIGHT Unit to read the analog value returned by the pressure sensor,
+  Please connect to Port,Use WEIGHT Unit to read the analog value returned by the pressure sensor,
   convert it into intuitive weight data and send it to M5Core,Press ButtonA to calibrate
-  请连接端口B,使用WEIGHT Unit读取压力传感器返回的模拟值，将其转换为直观的重量数据，发送到M5Core，按下按钮A进行校准
+  请连接端口,使用WEIGHT Unit读取压力传感器返回的模拟值，将其转换为直观的重量数据，发送到M5Core，按下按钮A进行校准
 */
 
 #include<M5Atom.h>

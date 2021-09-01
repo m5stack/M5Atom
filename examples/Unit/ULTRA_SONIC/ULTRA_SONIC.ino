@@ -9,8 +9,8 @@
 * describe: Ultrasonic.  超声波测距传感器
 * date：2021/8/19
 *******************************************************************************
-  Please connect to Port A,Display the distance measured by ultrasonic
-  请连接端口A,显示超声波测量的距离
+  Please connect to Port,Display the distance measured by ultrasonic
+  请连接端口,显示超声波测量的距离
 */
 
 #include <M5Atom.h>

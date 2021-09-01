@@ -9,8 +9,8 @@
 * describe: can.
 * date：2021/9/1
 *******************************************************************************
-  Please connect to PORT-,Press buttonA to Send message if received message, screen will display
-  请连接端口,按钮A发送消息，如果收到消息，屏幕将显示
+  Please connect to PORT-,Press buttonA to Send message if received message, Serial will display
+  请连接端口,按钮A发送消息，如果收到消息，串口将显示
 */
 
 #include <M5Atom.h>

@@ -17,7 +17,7 @@
 uint8_t userNum;           //User number
 FingerPrint FP_M;
 
-void CleanScreen()
+void CleanSerial()
 {
   userNum = FP_M.fpm_getUserNum();  //Get users Numbers.  获取用户数量
   Serial.print("userNum:");
@@ -39,7 +39,7 @@ void loop(){
   uint8_t res1;
   //ButtonA: Add user.  添加用户
   if(M5.Btn.wasPressed()){
-    CleanScreen();
+    CleanSerial();
     Serial.println("Fingerprint Typing");
 
     res1 = FP_M.fpm_addUser(userNum,1);

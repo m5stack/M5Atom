@@ -9,8 +9,8 @@
 * describe: ncir.  单点红外测温传感器
 * date：2021/8/27
 *******************************************************************************
-  Please connect to Port A,Use NCIR Unit to measure the temperature without contact and display the value on the screen.
-  请连接端口A,使用NCIR单元无接触测量温度，并在屏幕上显示。
+  Please connect to Port,Use NCIR Unit to measure the temperature without contact and display the value on the Serial.
+  请连接端口,使用NCIR单元无接触测量温度，并在串口上显示。
 */
 #include <M5Atom.h>
 

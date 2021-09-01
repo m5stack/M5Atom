@@ -9,7 +9,7 @@
 * describe: TVOC/eCO2.
 * date：2021/8/26
 *******************************************************************************
-  Description: The screen will display TVOC and CO2.  屏幕将显示TVOC和CO2。
+  Description: The Serial will display TVOC and CO2.  串口将显示TVOC和CO2。
   Note: SGP30 needs 15 seconds to initialize calibration after power on.  SGP30开机后需要15秒进行初始校准。
 */
 

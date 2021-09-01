@@ -34,7 +34,7 @@ void setup() {
 
 void loop() {
   //now, once you press the button on a remote controller to send infrared light.  现在，一旦你按下遥控器上的按钮发送红外线
-  //the screen will display "detected!"  屏幕将显示“检测到!”
+  //the Serial will display "detected!"  串口将显示“检测到!”
   cur_recv_value = digitalRead(ir_recv_pin);
   if(last_recv_value != cur_recv_value){
     if(cur_recv_value == 0){  //0: detected 1: not detected,  0检测到,1没有检测到

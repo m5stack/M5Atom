@@ -9,8 +9,8 @@
 * describe: pdm.  麦克风
 * date：2021/8/27
 *******************************************************************************
-  Please connect to Port A,Read the microphone data of the PDM Unit and display the audio loudness.
-  请连接端口A,读取PDM Unit的麦克风数据，显示响度。
+  Please connect to Port,Read the microphone data of the PDM Unit and display the audio loudness.
+  请连接端口,读取PDM Unit的麦克风数据，显示响度。
   Note: Remove the M5GO base when using this example, otherwise it will not work properly
   注意:在使用本示例时删除M5GO base，否则它将无法正常工作
 */
