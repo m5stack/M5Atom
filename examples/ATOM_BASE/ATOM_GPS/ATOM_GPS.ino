@@ -3,10 +3,10 @@
 * Copyright (c) 2021 by M5Stack
 *                  Equipped with Atom-Lite/Matrix sample source code
 *                          配套  Atom-Lite/Matrix 示例源代码
-* Visit the website for more information：https://docs.m5stack.com/en/atom/atom_can
-* 获取更多资料请访问：https://docs.m5stack.com/zh_CN/atom/atom_can
+* Visit the website for more information：https://docs.m5stack.com/en/atom/atomicgps
+* 获取更多资料请访问：https://docs.m5stack.com/zh_CN/atom/atomicgps
 *
-* describe: Can.
+* describe: GPS.
 * date：2021/9/1
 *******************************************************************************
   This is an example used SerialBT,you can can view gps data by connecting 
