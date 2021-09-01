@@ -27,16 +27,17 @@ void setup() {
     Serial.println("\nFailed to initialise EEPROM!"); //串口输出格式化字符串.  Serial output format string
     delay(1000000);
   }
-  Serial.println("\nRead data from Flash. Values are:");
+  Serial.println("\nRead data from EEPROM. Values are:");
   for (int i = 0; i < SIZE; i++){
     Serial.printf("%d ",EEPROM.read(i)); //Reads data from 0 to SIZE in EEPROM.  读取EEPROM中从0到SIZE中的数据
   }
+  M5.Lcd.println("\n\nPress Btn to Write EEPROM");
 }
 
 void loop() {
   M5.update();  //Check button down state.  检测按键按下状态
   if(M5.Btn.isPressed()){ //if the button is Pressed.  如果按键按下
-    Serial.printf("\n%d Bytes datas written on Flash.\nValues are:\n",SIZE);
+    Serial.printf("\n%d Bytes datas written on EEPROM.\nValues are:\n",SIZE);
     for(int i=0;i<SIZE;i++){
       int val = random(256);  //Integer values to be stored in the EEPROM (EEPROM can store one byte per memory address, and can only store numbers from 0 to 255. Therefore, if you want to use EEPROM to store the numeric value read by the analog input pin, divide the numeric value by 4.
       //将要存储于EEPROM的整数数值(EEPROM每一个存储地址可以储存一个字节，只能存储0-255的数.故如果要使用EEPROM存储模拟输入引脚所读取到的数值需要将该数值除以4)
@@ -46,7 +47,7 @@ void loop() {
     }
     //When the storage address sequence number reaches the end of the storage space of the EEPROM, return to.  当存储地址序列号达到EEPROM的存储空间结尾，返回到EEPROM开始地址
     addr = 0;
-    Serial.println("\nBytes written on Flash. Values are:");
+    Serial.println("\n\nRead form EEPROM. Values are:");
     for(int i=0;i<SIZE;i++){
       Serial.printf("%d ",EEPROM.read(i));
     }
