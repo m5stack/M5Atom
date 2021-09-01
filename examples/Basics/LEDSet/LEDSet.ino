@@ -18,7 +18,7 @@ the program in the setUp () function will be run, and this part will only be run
 void setup(){
     M5.begin(true, false, true);    //Init Atom-Matrix(Initialize serial port, LED).  初始化 ATOM-Matrix(初始化串口、LED点阵)
     delay(50);   //delay 50ms.  延迟50ms
-    M5.dis.drawpix(0, 0xf00000);    //Light the LED with the specified RGB color F00000(Atom-Matrix has only one light).  以指定RGB颜色f00000点亮第0个LED
+    M5.dis.drawpix(0, 0xf00000);    //Light the LED with the specified GBR color F00000(Atom-Matrix has only one light).  以指定GRB颜色f00000点亮第0个LED(绿色)
 }
 
 uint8_t FSM = 0;     //Store the number of key presses.  存储按键按下次数
@@ -31,10 +31,10 @@ void loop(){
     if (M5.Btn.wasPressed()){   //Check if the key is pressed.  检测按键是否被按下
         switch (FSM){
         case 0:
-            M5.dis.drawpix(0, 0xfff000);
+            M5.dis.drawpix(0, 0xfff000);  //YELLOW 黄色
             break;
         case 1:
-            M5.dis.drawpix(0, 0x00f000);
+            M5.dis.drawpix(0, 0x00f000);  //RED  红色
             break;
         case 2:
             M5.dis.drawpix(0, 0x0000f0);

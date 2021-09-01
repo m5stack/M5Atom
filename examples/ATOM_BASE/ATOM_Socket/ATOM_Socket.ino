@@ -1,7 +1,18 @@
 /*
-    Description: 
-    Use ATOM Socket to monitor the socket power, press the middle button of ATOM to switch the socket power on and off.
-    Connect to the AP hotspot of the device and access 192.168.4.1 to wirelessly control the socket power and view the power voltage, current and power information.
+*******************************************************************************
+* Copyright (c) 2021 by M5Stack
+*                  Equipped with Atom-Lite/Matrix sample source code
+*                          配套  Atom-Lite/Matrix 示例源代码
+* Visit the website for more information：https://docs.m5stack.com/en/atom/atom_socket
+* 获取更多资料请访问：https://docs.m5stack.com/zh_CN/atom/atom_socket
+*
+* describe: Socket.
+* date：2021/9/1
+*******************************************************************************
+  Use ATOM Socket to monitor the socket power, press the middle button of ATOM to switch the socket power on and off.
+  Connect to the AP hotspot of the device and access 192.168.4.1 to wirelessly control the socket power and view the power voltage, current and power information.
+  使用ATOM插座监控插座电源，按ATOM的中间按钮即可打开和关闭插座电源。
+  连接到设备的AP热点，接入192.168.4.1，无线控制插座电源，查看电源电压、电流和电源信息。
 */
 
 #include "M5Atom.h"

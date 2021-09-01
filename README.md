@@ -79,7 +79,7 @@ Start moving animation of an image
 <table>
 <tr><td>name</td><td>type</td><td>range</td><td>default</td><td>description</td></tr>
 <tr><td>buffptr</td><td>uint8_t*</td><td>-</td><td>-</td><td>Image pointer</td></tr>
-<tr><td>amspeed</td><td>uint8_t</td><td>0 ~ MAXSIZE of uint8_t </td><td>-</td><td>Time interval of image movement</td></tr>
+<tr><td>amspeed</td><td>uint8_t</td><td>0 ~ 255 </td><td>-</td><td>Time interval of image movement</td></tr>
 <tr><td>ammode</td><td>uint8_t</td><td>See also Am_mode</td><td>-</td><td>Animation mode of image movement</td></tr>
 <tr><td>amcount</td><td>int64_t</td><td>-1 ~ MAXSIZE of int64_t</td><td>-1</td><td>The distance the image moves (pixels)</td></tr>
 </table>
