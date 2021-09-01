@@ -1,3 +1,15 @@
+/*
+*******************************************************************************
+* Copyright (c) 2021 by M5Stack
+*                  Equipped with Atom-Lite/Matrix sample source code
+*                          配套  Atom-Lite/Matrix 示例源代码
+* Visit the website for more information：https://docs.m5stack.com/en/products
+* 获取更多资料请访问：https://docs.m5stack.com/zh_CN/products
+*
+* describe: Hdiver.
+* date：2021/9/1
+*******************************************************************************
+*/
 #include "M5Atom.h"
 #include <Arduino.h>
 
@@ -24,30 +36,30 @@ void setup() {
 
 void loop() {
 
-    if (M5.Btn.pressedFor(2000)){
-        M5.dis.drawpix(0, 0x000000);
-        ledcWrite(ledChannel1, 0);
-        ledcWrite(ledChannel2, 0);
-    }
+  if (M5.Btn.pressedFor(2000)){
+    M5.dis.drawpix(0, 0x000000);
+    ledcWrite(ledChannel1, 0);
+    ledcWrite(ledChannel2, 0);
+  }
 
-    if (M5.Btn.wasPressed())
-    {
-        if(direction){
-          M5.dis.drawpix(0, 0x0000f0);
-          ledcWrite(ledChannel1, 1000);
-          ledcWrite(ledChannel2, 0);
-        }else{
-          M5.dis.drawpix(0, 0xff00f0);
-          ledcWrite(ledChannel1, 0);
-          ledcWrite(ledChannel2, 1000);
-        }
-        direction = !direction;
+  if (M5.Btn.wasPressed())
+  {
+    if(direction){
+      M5.dis.drawpix(0, 0x0000f0);
+      ledcWrite(ledChannel1, 1000);
+      ledcWrite(ledChannel2, 0);
+    }else{
+      M5.dis.drawpix(0, 0xff00f0);
+      ledcWrite(ledChannel1, 0);
+      ledcWrite(ledChannel2, 1000);
     }
-    
-    M5.update();
-    Serial.println("VIN IN: "+String((analogRead(VIN_PIN)*10.0/4095.0)*3.6));
-    if(digitalRead(FAULT_PIN) == 0){
-      Serial.println("FAULT!");
-    }
-    delay(100);
+    direction = !direction;
+  }
+  
+  M5.update();
+  Serial.println("VIN IN: "+String((analogRead(VIN_PIN)*10.0/4095.0)*3.6));
+  if(digitalRead(FAULT_PIN) == 0){
+    Serial.println("FAULT!");
+  }
+  delay(100);
 }

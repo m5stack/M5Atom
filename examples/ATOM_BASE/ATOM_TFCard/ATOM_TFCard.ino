@@ -1,10 +1,24 @@
-/* Open Serial Monitor to view result*/
+/*
+*******************************************************************************
+* Copyright (c) 2021 by M5Stack
+*                  Equipped with Atom-Lite/Matrix sample source code
+*                          配套  Atom-Lite/Matrix 示例源代码
+* Visit the website for more information：https://docs.m5stack.com/en/atom/atomictf
+* 获取更多资料请访问：https://docs.m5stack.com/zh_CN/atom/atomictf
+*
+* describe: TFCard.
+* date：2021/9/1
+*******************************************************************************
+  Open Serial Monitor to view result
+  打开串口监视器来获取结果
+*/
 
 #include "M5Atom.h"
 #include <SPI.h>
 #include "FS.h"
 #include "SD.h"
 
+//Listing directory.  列出目录
 void listDir(fs::FS &fs, const char * dirname, uint8_t levels){
     Serial.printf("Listing directory: %s\n", dirname);
 
@@ -36,6 +50,7 @@ void listDir(fs::FS &fs, const char * dirname, uint8_t levels){
     }
 }
 
+//Creating Dir.  创建目录
 void createDir(fs::FS &fs, const char * path){
     Serial.printf("Creating Dir: %s\n", path);
     if(fs.mkdir(path)){
@@ -45,6 +60,7 @@ void createDir(fs::FS &fs, const char * path){
     }
 }
 
+//Removing Dir.  删除目录
 void removeDir(fs::FS &fs, const char * path){
     Serial.printf("Removing Dir: %s\n", path);
     if(fs.rmdir(path)){
@@ -54,6 +70,7 @@ void removeDir(fs::FS &fs, const char * path){
     }
 }
 
+//Reading file.  读取文件
 void readFile(fs::FS &fs, const char * path){
     Serial.printf("Reading file: %s\n", path);
 
@@ -70,6 +87,7 @@ void readFile(fs::FS &fs, const char * path){
     file.close();
 }
 
+//Writing file  写入文件
 void writeFile(fs::FS &fs, const char * path, const char * message){
     Serial.printf("Writing file: %s\n", path);
 
@@ -86,6 +104,7 @@ void writeFile(fs::FS &fs, const char * path, const char * message){
     file.close();
 }
 
+//Appending to file  添加到文件
 void appendFile(fs::FS &fs, const char * path, const char * message){
     Serial.printf("Appending to file: %s\n", path);
 
@@ -102,6 +121,7 @@ void appendFile(fs::FS &fs, const char * path, const char * message){
     file.close();
 }
 
+//Renaming file  重命名文件
 void renameFile(fs::FS &fs, const char * path1, const char * path2){
     Serial.printf("Renaming file %s to %s\n", path1, path2);
     if (fs.rename(path1, path2)) {
@@ -111,6 +131,7 @@ void renameFile(fs::FS &fs, const char * path1, const char * path2){
     }
 }
 
+//Deleting file  删除文件
 void deleteFile(fs::FS &fs, const char * path){
     Serial.printf("Deleting file: %s\n", path);
     if(fs.remove(path)){
