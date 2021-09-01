@@ -9,8 +9,8 @@
 * describe: Vmeter_ADS1115.  电流计
 * date：2021/8/27
 *******************************************************************************
-  Please connect to Port A,Measure voltage and display in the screen.
-  请连接端口A,测量电压并显示到屏幕上
+  Please connect to Port A,Measure voltage and display in the serial.
+  请连接端口A,测量电压并显示到串口
   Pay attention: EEPROM (0x53) has built-in calibration parameters when leaving the factory.
   Please do not write to the EEPROM, otherwise the calibration data will be overwritten and the measurement results will be inaccurate.
   注意: EEPROM (0x53)在出厂时具有内置的校准参数。请不要写入EEPROM，否则校准数据会被覆盖，测量结果会不准确。
