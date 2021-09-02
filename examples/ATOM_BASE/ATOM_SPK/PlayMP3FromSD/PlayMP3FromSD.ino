@@ -33,11 +33,11 @@ AudioFileSourceID3 *id3;
 #define MISO 33
 #define MOSI 19
 
-// Called when there's a warning or error (like a buffer underflow or decode hiccup)
+// Called when there's a warning or error (like a buffer underflow or decode hiccup).  在出现警告或错误（如缓冲区下溢或解码打嗝）时调用
 void StatusCallback(void *cbData, int code, const char *string)
 {
   const char *ptr = reinterpret_cast<const char *>(cbData);
-  // Note that the string may be in PROGMEM, so copy it to RAM for printf
+  // Note that the string may be in PROGMEM, so copy it to RAM for printf.  请注意，该字符串可能在 PROGMEM 中，因此将其复制到 RAM 以供 printf 使用
   char s1[64];
   strncpy_P(s1, string, sizeof(s1));
   s1[sizeof(s1)-1]=0;
