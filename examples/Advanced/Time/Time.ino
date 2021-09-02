@@ -34,7 +34,7 @@ void setup(){
   M5.begin(true,false,true);  //Init Atom(Initialize serial port, LED).  初始化 ATOM(初始化串口、LED)
   Serial.printf("\nConnecting to %s ", ssid);
   WiFi.begin(ssid, password); //Connect wifi and return connection status.  连接wifi并返回连接状态
-  M5.dis.fillpix(0x00f000); //Make the LED light show red.  使led灯显示红色
+  M5.dis.fillpix(0xff0000); //Make the LED light show red.  使led灯显示红色
   while (WiFi.status() != WL_CONNECTED) { //If the wifi connection fails.  若wifi未连接成功
     delay(500); //delay 0.5s.  延迟0.5s
     Serial.print(".");
@@ -42,7 +42,7 @@ void setup(){
   Serial.println(" CONNECTED");
   configTime(gmtOffset_sec, daylightOffset_sec, ntpServer); //init and get the time.  初始化并设置NTP
   printLocalTime();
-  M5.dis.fillpix(0xf00000); //Make the LED light green.  使led灯显示绿色
+  M5.dis.fillpix(0x00ff00); //Make the LED light green.  使led灯显示绿色
   WiFi.disconnect(true);  //Disconnect wifi.  断开wifi连接
   WiFi.mode(WIFI_OFF);  //Set the wifi mode to off.  设置wifi模式为关闭
   delay(20);

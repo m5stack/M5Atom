@@ -25,7 +25,7 @@ void setup()
   wifiMulti.addAP("cam", "6767");  //Storage wifi configuration information 1.  存储wifi配置信息1
   wifiMulti.addAP("wifi1", "12345566");
   wifiMulti.addAP("aaa", "sadf");
-  M5.dis.fillpix(0xfff000); //Light LED with the specified RGB color F00000(Atom-Matrix has only one light).  以指定RGB颜色fff000点亮所有LED
+  M5.dis.fillpix(0xfff000); //Light LED with the specified GRB color 0xfff000(Atom-Matrix has only one light).  以指定GRB颜色fff000点亮所有LED
   Serial.println("\n\nConnecting Wifi..."); //Serial port format output string.  串口格式化输出字符串
   if(wifiMulti.run() == WL_CONNECTED) {   //If the connection to wifi is established successfully.  如果与wifi成功建立连接
     Serial.print("WiFi connected\n\nSSID:");
@@ -41,10 +41,10 @@ void loop()
 {
   if(wifiMulti.run() != WL_CONNECTED) { //If the connection to wifi is not established successfully.  如果没有与wifi成功建立连接
     Serial.println("WiFi not connected!");
-    M5.dis.fillpix(0x00f000);
+    M5.dis.fillpix(0xff0000);
     delay(1000);
   }else{
-    M5.dis.fillpix(0xf00000);
+    M5.dis.fillpix(0x00ff00);
     delay(1000);
   }
 }

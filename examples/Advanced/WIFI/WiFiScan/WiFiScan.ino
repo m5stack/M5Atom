@@ -31,9 +31,9 @@ void loop()
     int n = WiFi.scanNetworks();  //return the number of networks found.  返回发现的网络数
     if (n == 0){  //If no network is found.  如果没有找到网络
       Serial.println("no networks found");
-      M5.dis.fillpix(0x00f000);
+      M5.dis.fillpix(0xff0000);
     }else{  //If have network is found.  找到网络
-      M5.dis.fillpix(0xf00000);
+      M5.dis.fillpix(0x00ff00);
       Serial.printf("networks found:%d\n\n",n);
       for (int i = 0; i < n; ++i)
       { // Print SSID and RSSI for each network found.  打印每个找到的网络的SSID和信号强度

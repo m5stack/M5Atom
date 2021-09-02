@@ -72,7 +72,7 @@ void setup(){
         Serial.println("Card Mount Failed");
         return;
     }
-    M5.dis.drawpix(0, 0xf00000);
+    M5.dis.drawpix(0, 0x00ff00);
     audioLogger = &Serial;
     file = new AudioFileSourceSD("/11-fanfare.mp3");
     id3 = new AudioFileSourceID3(file);

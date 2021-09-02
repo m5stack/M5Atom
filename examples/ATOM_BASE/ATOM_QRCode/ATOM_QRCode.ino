@@ -35,7 +35,7 @@ void loop() {
     digitalWrite(TRIG, HIGH);
   }
   if(digitalRead(DLED) == HIGH){  //If read the QR code.  如果读取到二维码
-    M5.dis.fillpix(0xf00000); //GREEN  绿色
+    M5.dis.fillpix(0x00ff00); //GREEN  绿色
     while(Serial2.available() > 0){
       char ch = Serial2.read();
       Serial.print(ch);

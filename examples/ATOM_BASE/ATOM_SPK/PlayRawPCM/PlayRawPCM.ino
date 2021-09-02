@@ -22,7 +22,7 @@ ATOMSPK _AtomSPK;
 void setup(){
     M5.begin(true,false,true);
     _AtomSPK.begin();
-    M5.dis.drawpix(0, 0xf00000);
+    M5.dis.drawpix(0, 0x00ff00);
     _AtomSPK.playBeep();
     
 }

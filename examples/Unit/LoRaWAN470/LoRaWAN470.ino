@@ -115,14 +115,14 @@ void loop()
           Serial.println("[ INFO ] JOIN IN SUCCESSFUL");
           Serial.printf("LoraWan JOIN");
           system_fsm = kJoined;
-          M5.dis.fillpix(0xf00000); //GREEN  绿色
+          M5.dis.fillpix(0x00ff00); //GREEN  绿色
       }
       else
       {
           Serial.println("[ INFO ] JOIN IN FAIL");
           Serial.printf("LoraWan JOIN FAIL");
           system_fsm = kIdel;
-          M5.dis.drawpix(0, 0x00f000);  //RED  红色
+          M5.dis.drawpix(0, 0xff0000);  //RED  红色
 
       }
   }
