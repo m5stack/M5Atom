@@ -7,7 +7,7 @@
 * 获取更多资料请访问：https://docs.m5stack.com/zh_CN/core/atom_matrix
 *
 * describe：LED pattern display.  LED图案显示
-* date：2021/7/21
+* date：2021/9/2
 *******************************************************************************
 */
 #include "M5Atom.h"
@@ -32,6 +32,7 @@ void loop(){
     // Moves an AtomImageData 25 steps in the direction of a kmoveLeft at the specified speed of 200
     //Notice: Speed range 0~255
     //将某个图案AtomImageData以指定速度200向指定方向kMoveLeft移动25步(速度范围0~255)
+    M5.dis.setWidthHeight(25,5);  //Set the width and height of the display pattern.  设置显示图案的宽高
     M5.dis.animation((uint8_t *)AtomImageData, 200, LED_DisPlay::kMoveLeft, 25);
     delay(5250);
 }
