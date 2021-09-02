@@ -10,7 +10,7 @@ LED_DisPlay::~LED_DisPlay()
 
 void LED_DisPlay::begin(uint8_t LEDNumber)
 {
-    FastLED.addLeds<WS2812, DATA_PIN>(_ledbuff, LEDNumber);
+    FastLED.addLeds<WS2812, DATA_PIN, GRB>(_ledbuff, LEDNumber);
     _xSemaphore = xSemaphoreCreateMutex();
     _numberled = LEDNumber;
 }
@@ -31,7 +31,8 @@ void LED_DisPlay::run(void *data)
         xSemaphoreTake(_xSemaphore, portMAX_DELAY);
         if (_mode == kAnimation_run)
         {
-
+            _displaybuff(_am_buffptr, _count_x, _count_y);
+            FastLED.show();
             if ((_am_mode & kMoveRight) || (_am_mode & kMoveLeft))
             {
                 if (_am_mode & kMoveRight)
@@ -62,8 +63,6 @@ void LED_DisPlay::run(void *data)
                     _mode = kAnimation_stop;
                 }
             }
-            _displaybuff(_am_buffptr, _count_x, _count_y);
-            FastLED.show();
             delay(_am_speed);
         }
         else if (_mode == kAnimation_frush)

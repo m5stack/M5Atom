@@ -1,10 +1,19 @@
 /*
-    Description: 
-    Use ATOM SPK play mp3 files from TF Card
-    Before runing put the music file to the TF card
-    MP3 file link: http://gitfile.oss-cn-beijing.aliyuncs.com/11-fanfare.mp3
-    Please install library before compiling:  
-    ESP8266Audio: https://github.com/earlephilhower/ESP8266Audio
+*******************************************************************************
+* Copyright (c) 2021 by M5Stack
+*                  Equipped with Atom-Lite sample source code
+*                          配套  Atom-Lite 示例源代码
+* Visit the website for more information：https://docs.m5stack.com/en/atom/atom_spk
+* 获取更多资料请访问：https://docs.m5stack.com/zh_CN/atom/atom_spk
+*
+* describe: SPK.
+* date：2021/9/1
+*******************************************************************************
+  Use ATOM SPK play mp3 files from TF Card
+  使用ATOM SPK播放TF卡中的mp3文件。
+  Before runing put the music file to the TF card
+  在运行之前，将音乐文件放入TF卡
+  MP3 file link: http://gitfile.oss-cn-beijing.aliyuncs.com/11-fanfare.mp3
 */
 
 #include "M5Atom.h"
