@@ -62,7 +62,7 @@ void setup(){
     Serial.print("AP PASSWORD: ");
     Serial.println(password);
     Serial.print("IP address: ");
-    Serial.println(WiFi.softAPIP());  //IP address assigned to your ESP
+    Serial.println(WiFi.softAPIP());  //IP address assigned to your ESP  获取ip地址
     server.on("/", handleRoot);
 
     server.on("/on", []() {

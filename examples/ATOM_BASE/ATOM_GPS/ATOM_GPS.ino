@@ -35,7 +35,7 @@ float Lat;
 float Lon;
 String Utc;
 
-bool writeLog(String filename) {          //Write GPSdata to SDcard
+bool writeLog(String filename) {          //Write GPSdata to SDcard.  将 GPS 数据写入 SD 卡
   txtFile = SD.open(filename, FILE_APPEND);
   if(txtFile){
     txtFile.print(Lat);
