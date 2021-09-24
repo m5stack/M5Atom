@@ -64,10 +64,10 @@ void setup(){
   vSemaphoreCreateBinary( CtlSemaphore );
   xTaskCreatePinnedToCore(
     TaskMotion
-    ,  "TaskMotion"   // A name just for humans
-    ,  4096  // This stack size can be checked & adjusted by reading the Stack Highwater
+    ,  "TaskMotion"   // A name just for task.  任务名称
+    ,  4096  // This stack size can be checked & adjusted by reading the Stack Highwater.  可以通过阅读 Stack Highwater 来检查和调整此堆栈大小
     ,  NULL
-    ,  2  // Priority, with 3 (configMAX_PRIORITIES - 1) being the highest, and 0 being the lowest.
+    ,  2  // Priority, with 3 (configMAX_PRIORITIES - 1) being the highest, and 0 being the lowest..  优先级，3 (configMAX_PRIORITIES - 1) 最高，0 最低。
     ,  NULL 
     ,  0);
 }

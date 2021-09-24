@@ -54,7 +54,7 @@ String DataCreate() {
 
 void setup(){
     M5.begin(true, false, true);
-    M5.dis.drawpix(0, 0xe0ffff);
+    M5.dis.drawpix(0, 0xfff000);
     ATOM.Init(AtomSerial, RELAY, RXD);
     WiFi.softAP(ssid, password);
     Serial.print("AP SSID: ");
@@ -62,7 +62,7 @@ void setup(){
     Serial.print("AP PASSWORD: ");
     Serial.println(password);
     Serial.print("IP address: ");
-    Serial.println(WiFi.softAPIP());  //IP address assigned to your ESP
+    Serial.println(WiFi.softAPIP());  //IP address assigned to your ESP  获取ip地址
     server.on("/", handleRoot);
 
     server.on("/on", []() {
@@ -108,7 +108,7 @@ void loop(){
         ATOM.SetPowerOn();
     }else{
         ATOM.SetPowerOff();
-        M5.dis.drawpix(0, 0xe0ffff);
+        M5.dis.drawpix(0, 0xfff000);
     }
     M5.update();
     server.handleClient();

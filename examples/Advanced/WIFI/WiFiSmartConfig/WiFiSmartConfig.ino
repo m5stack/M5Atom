@@ -36,7 +36,7 @@ void setup() {
     delay(500);
     Serial.print(".");
   }
-  M5.dis.fillpix(0xf00000);
+  M5.dis.fillpix(0x00ff00);
   Serial.print("WiFi Connect To: ");
   Serial.println(WiFi.SSID());  //Output Network name.  输出网络名称
   Serial.print("IP address: ");

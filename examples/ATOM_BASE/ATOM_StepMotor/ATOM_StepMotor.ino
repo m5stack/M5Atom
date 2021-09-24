@@ -33,7 +33,7 @@ void setup()
   M5.begin(true, false, true);
   ss.setSpeed(0); // Sets the speed in revs per minute.  设置转速(转/分)
   ss.powerEnable(true);
-  M5.dis.fillpix(0xf00000); //GREEN  绿色
+  M5.dis.fillpix(0x00ff00); //GREEN  绿色
   delay(1600);
 }
 

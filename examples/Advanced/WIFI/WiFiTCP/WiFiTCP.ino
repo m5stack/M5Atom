@@ -27,12 +27,12 @@ void setup()
   M5.begin(true,false,true);  //Init Atom(Initialize serial port, LED).  初始化 ATOM(初始化串口、LED)
   WiFiMulti.addAP(ssid, password);  //Add wifi configuration information.  添加wifi配置信息
   Serial.print("\nWaiting connect to WiFi..."); //Serial port output format string.  串口输出格式化字符串
-  M5.dis.fillpix(0x00f000); //Make the LED light show red.  使led灯显示红色
+  M5.dis.fillpix(0xff0000); //Make the LED light show red.  使led灯显示红色
   while(WiFiMulti.run() != WL_CONNECTED) {  //If the connection to wifi is not established successfully.  如果没有与wifi成功建立连接
     Serial.print(".");
     delay(300);
   }
-  M5.dis.fillpix(0xf00000); //Make the LED light green.  使led灯显示绿色
+  M5.dis.fillpix(0x00ff00); //Make the LED light green.  使led灯显示绿色
   Serial.println("\nWiFi connected");
   Serial.print("IP address: ");
   Serial.println(WiFi.localIP()); //The serial port outputs the IP address of the M5Atom.  串口输出M5Atom的IP地址

@@ -54,9 +54,9 @@ void setup() {
 
 void loop() {
   if (settingMode) {
-    M5.dis.fillpix(0x00f000);
+    M5.dis.fillpix(0xff0000);
   }else{
-    M5.dis.fillpix(0xf00000);
+    M5.dis.fillpix(0x00ff00);
   }
   webServer.handleClient(); //Check for devices sending requests to the M5ATOM web server over the network.  检查有没有设备通过网络向M5ATOM网络服务器发送请求
 }
