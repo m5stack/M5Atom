@@ -6,7 +6,7 @@
 * Visit the website for more information：https://docs.m5stack.com/en/core/atom_matrix
 * 获取更多资料请访问：https://docs.m5stack.com/zh_CN/core/atom_matrix
 *
-* describe：GRB LED.  点阵示例
+* describe：RGB LED.  点阵示例
 * date：2021/7/21
 *******************************************************************************
 */
@@ -18,7 +18,7 @@ the program in the setUp () function will be run, and this part will only be run
 void setup(){
     M5.begin(true, false, true);    //Init Atom-Matrix(Initialize serial port, LED).  初始化 ATOM-Matrix(初始化串口、LED点阵)
     delay(50);   //delay 50ms.  延迟50ms
-    M5.dis.drawpix(0, 0x00ff00);    //Light the LED with the specified GRB color 00ff00(Atom-Matrix has only one light).  以指定GRB颜色0x00ff00点亮第0个LED
+    M5.dis.drawpix(0, 0x00ff00);    //Light the LED with the specified RGB color 00ff00(Atom-Matrix has only one light).  以指定RGB颜色0x00ff00点亮第0个LED
 }
 
 uint8_t FSM = 0;     //Store the number of key presses.  存储按键按下次数
