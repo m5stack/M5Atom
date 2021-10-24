@@ -44,8 +44,8 @@ EthernetServer server(80);
 
 void setup() {
 
-  FastLED.addLeds<NEOPIXEL, DATA_PIN1>(leds, NUM_LEDS);  // GRB ordering is assumed
-  FastLED.addLeds<NEOPIXEL, DATA_PIN2>(leds, NUM_LEDS);  // GRB ordering is assumed
+  FastLED.addLeds<NEOPIXEL, DATA_PIN1>(leds, NUM_LEDS);  // RGB ordering is assumed
+  FastLED.addLeds<NEOPIXEL, DATA_PIN2>(leds, NUM_LEDS);  // RGB ordering is assumed
 
   SPI.begin(SCK, MISO, MOSI, -1);
   Ethernet.init(CS);
