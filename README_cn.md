@@ -45,11 +45,6 @@
 
 <img src="https://static-cdn.m5stack.com/resource/docs/static/assets/img/product_pics/core/minicore/atom/ATOM_LITE_SIMPLE_CIRCUT_20200514.webp" width="100%">
 
-## 相关链接
-
-- **Datasheet**
-    - [ESP32-PICO](https://m5stack.oss-cn-shenzhen.aliyuncs.com/resource/docs/datasheet/core/esp32-pico-d4_datasheet_cn.pdf)
-
 ## 更多信息
 
 **UIFlow 快速上手**: [点击这里](https://docs.m5stack.com/zh_CN/quick_start/atom/uiflow)

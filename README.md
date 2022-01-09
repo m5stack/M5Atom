@@ -44,12 +44,6 @@ Connect the device to the PC, open the device manager to install [FTDI driver](h
 
 <img src="https://static-cdn.m5stack.com/resource/docs/static/assets/img/product_pics/core/minicore/atom/ATOM_LITE_SIMPLE_CIRCUT_20200514.webp" width="100%">
 
-## Related Link
-
-- **Datasheet**
-
-    - [ESP32-PICO](https://m5stack.oss-cn-shenzhen.aliyuncs.com/resource/docs/datasheet/core/esp32-pico-d4_datasheet_en.pdf)
-
 ## More Information
 
 **UIFlow Quick Start**: [Click Here](https://docs.m5stack.com/en/quick_start/atom/uiflow)
