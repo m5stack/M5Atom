@@ -20,7 +20,7 @@ void M5Atom::begin(bool SerialEnable, bool I2CEnable, bool DisplayEnable)
 
 	if (I2CEnable)
 	{
-		Wire.begin(25, 21, 100000);
+		Wire.begin(25, 21, 100000UL);
 	}
 	if (SerialEnable)
 	{
