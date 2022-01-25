@@ -13,8 +13,8 @@
 #include <HTTPClient.h>
 #include "BaiduRest.h"
 
-const char *WifiSSID = "M5-5G";
-const char *WifiPWD = "Office@888888";
+const char *WifiSSID = "wifi_ssid";
+const char *WifiPWD = "wifi_password";
 
 #define CONFIG_I2S_BCK_PIN 19
 #define CONFIG_I2S_LRCK_PIN 33
