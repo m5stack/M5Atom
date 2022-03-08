@@ -48,7 +48,7 @@ Connect the device to the PC, open the device manager to install [FTDI driver](h
 
 <img src="https://static-cdn.m5stack.com/resource/docs/images/atom/AtomPixelTool.png" alt="AtomPixelTool" height="100" style="margin-left:20px">
 
-[[Click here to download](https://m5stack.oss-cn-shenzhen.aliyuncs.com/resource/software/AtomPixTool.exe)
+[Click here to download](https://m5stack.oss-cn-shenzhen.aliyuncs.com/resource/software/AtomPixTool.exe)
 
 ## More Information
 
