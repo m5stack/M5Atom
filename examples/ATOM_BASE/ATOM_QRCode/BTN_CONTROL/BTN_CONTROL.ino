@@ -19,8 +19,10 @@
 #define DLED 33
 
 void setup() {
-  M5.begin(true, false, true);
-  Serial2.begin(115200, SERIAL_8N1, 22, 19);  //Set the baud rate of serial port 2 to 115200,8 data bits, no parity bits, and 1 stop bit, and set RX to 22 and TX to 19.  设置串口二的波特率为115200,8位数据位,没有校验位,1位停止位,并设置RX为22,TX为19
+  
+  M5.begin(false, false, true);
+  Serial.begin(9600);
+  Serial2.begin(9600, SERIAL_8N1, 22, 19);  //Set the baud rate of serial port 2 to 9600,8 data bits, no parity bits, and 1 stop bit, and set RX to 22 and TX to 19.  设置串口二的波特率为9600,8位数据位,没有校验位,1位停止位,并设置RX为22,TX为19
   M5.dis.fillpix(0xfff000); //YELLOW 黄色
   pinMode(TRIG, OUTPUT);
   pinMode(DLED, INPUT);
