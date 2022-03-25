@@ -12,7 +12,7 @@
 */
 #include "M5Atom.h"
 
-uint8_t DisBuff[2 + 5 * 5 * 3]; //Used to store RBG color values.  用来存储RBG色值
+uint8_t DisBuff[2 + 5 * 5 * 3]; //Used to store RGB color values.  用来存储RBG色值
 
 void setBuff(uint8_t Rdata, uint8_t Gdata, uint8_t Bdata){  //Set the colors of LED, and save the relevant data to DisBuff[].  设置RGB灯的颜色
     DisBuff[0] = 0x05;
