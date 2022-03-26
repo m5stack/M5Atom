@@ -21,7 +21,7 @@ HTTPClient http;
 
 void setup() {
   M5.begin();  //Init M5Atom.  初始化 M5Atom
-  wifiMulti.addAP("M5-2.4G", "Office@888888");  //Storage wifi configuration information.  存储wifi配置信息
+  wifiMulti.addAP("YOUR-WIFINAME", "YOUR_WIFIPASSWORD");  //Storage wifi configuration information.  存储wifi配置信息
   Serial.print("\nConnecting Wifi...\n"); //Serial port format output string.  串口格式化输出字符串
 }
 

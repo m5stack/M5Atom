@@ -10,7 +10,7 @@ AtomFly::~AtomFly()
 
 void AtomFly::begin()
 {
-    Wire1.begin(25, 21, 10000);
+    Wire1.begin(25, 21, 100000UL);
 
     _bmp = new Adafruit_BMP280(&Wire1);
 

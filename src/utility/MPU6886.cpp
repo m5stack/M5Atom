@@ -32,7 +32,7 @@ int MPU6886::Init(void){
   unsigned char tempdata[1];
   unsigned char regdata;
   
-  Wire1.begin(25,21,100000);
+  Wire1.begin(25,21,100000UL);
   
   I2C_Read_NBytes(MPU6886_ADDRESS, MPU6886_WHOAMI, 1, tempdata);
   Serial.printf("%02X\r\n",tempdata[0]);
