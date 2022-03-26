@@ -54,7 +54,7 @@ Connect the device to the PC, open the device manager to install [FTDI driver](h
 
 **UIFlow Quick Start**: [Click Here](https://docs.m5stack.com/en/quick_start/atom/uiflow)
 
-**MicroPyhton API**: [Click Here](https://docs.m5stack.com/en/quick_start/atom/mpy)
+**MicroPython API**: [Click Here](https://docs.m5stack.com/en/quick_start/atom/mpy)
 
 **Arduino IDE Development**: [Click Here](https://docs.m5stack.com/en/quick_start/atom/arduino)
 
