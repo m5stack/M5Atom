@@ -7,6 +7,13 @@ English | [中文](README_cn.md)
 
 <img src="https://m5stack.oss-cn-shenzhen.aliyuncs.com/image/m5-docs_homepage/core/atom_matrix_01.webp" alt="M5Atom Matrix" width="350" height="350">
 
+* **For the Detailed documentation of ATOM Lite, please [Click here](https://docs.m5stack.com/en/core/atom_lite)**
+
+* **For the Detailed documentation of ATOM Matrix, please [Click here](https://docs.m5stack.com/en/core/atom_matrix)**
+
+* **In order to buy ATOM Lite, please [Click here](https://shop.m5stack.com/collections/m5-controllers/products/atom-lite-esp32-development-kit)**
+
+* **In order to buy ATOM Matrix, please [Click here](https://shop.m5stack.com/collections/m5-controllers/products/atom-matrix-esp32-development-kit)**
 
 ## Description
 
@@ -45,8 +52,6 @@ Connect the device to the PC, open the device manager to install [FTDI driver](h
 <img src="https://static-cdn.m5stack.com/resource/docs/static/assets/img/product_pics/core/minicore/atom/ATOM_LITE_SIMPLE_CIRCUT_20200514.webp" width="100%">
 
 **Atom pixel tool**
-
-<img src="https://static-cdn.m5stack.com/resource/docs/images/atom/AtomPixelTool.png" alt="AtomPixelTool" height="100" style="margin-left:20px">
 
 [Click here to download](https://m5stack.oss-cn-shenzhen.aliyuncs.com/resource/software/AtomPixTool.exe)
 
