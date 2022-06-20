@@ -6,6 +6,13 @@
 * Visit the website for more information：https://docs.m5stack.com/en/atom/atom_poe
 * 获取更多资料请访问：https://docs.m5stack.com/zh_CN/atom/atom_poe
 *
+* Before compile this example, you have to change line 28 of the ESP32 core's Server.h from:
+* "virtual void begin(uint16_t port=0) =0;"
+* To:
+* "virtual void begin() =0;"
+* But that will break anything that uses the ESP32 WiFi library's WebServer class.
+* Reference link: https://github.com/arduino-libraries/Ethernet/issues/88
+* 
 * describe: PoE.
 * date：2021/9/1
 *******************************************************************************
