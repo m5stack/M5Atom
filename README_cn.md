@@ -31,19 +31,13 @@
 
 ## 管脚映射
 
-<table>
-   <thead>
-      <tr>
-         <th>外设</th>
-         <th>引脚</th>
-      </tr>
-   </thead>
- <tr><td>RGB Led</td><td>G27</td></tr>
- <tr><td>Btn</td><td>G39</td></tr>
- <tr><td>IR</td><td>G12</td></tr>
- <tr><td>SCL</td><td>G21</td></tr>
- <tr><td>SDA</td><td>G25</td></tr>
-</table>
+| 外设    | 引脚 |
+| ------- | ---- |
+| RGB Led | G27  |
+| Btn     | G39  |
+| IR      | G12  |
+| SCL     | G21  |
+| SDA     | G25  |
 
 <img src="https://static-cdn.m5stack.com/resource/docs/static/assets/img/product_pics/core/minicore/atom/atom_pin_map_01.webp" width="100%">
 
