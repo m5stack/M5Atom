@@ -3,11 +3,11 @@
 * Copyright (c) 2021 by M5Stack
 *                  Equipped with Atom-Lite/Matrix sample source code
 *                          配套  Atom-Lite/Matrix 示例源代码
-* Visit the website for more information：https://docs.m5stack.com/en/unit/pdm
+* Visit for more information: https://docs.m5stack.com/en/unit/pdm
 * 获取更多资料请访问：https://docs.m5stack.com/zh_CN/unit/pdm
 *
-* describe: pdm.  麦克风
-* date：2022/3/12
+* Product:  pdm.  麦克风
+* Date: 2022/3/12
 *******************************************************************************
   Please connect to Port,Read the microphone data of the PDM Unit and display
 the audio loudness. 请连接端口,读取PDM Unit的麦克风数据，显示响度。 Note: Remove
@@ -170,4 +170,6 @@ void setup() {
     microPhoneSetup();
 }
 
-void loop() { MicroPhoneFFT(); }
+void loop() {
+    MicroPhoneFFT();
+}

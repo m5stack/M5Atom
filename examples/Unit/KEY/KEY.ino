@@ -11,8 +11,8 @@
 * 在烧录前请按以下步骤添加 FastLED 库:
 * - Arduino menu --> Manage Libraries... --> FastLED --> install
 *
-* describe: UNIT-KEY example
-* date: 2022/6/1
+* Product:  UNIT-KEY example
+* Date: 2022/6/1
 *******************************************************************************
 */
 
@@ -33,7 +33,8 @@ void setup() {
 
     pinMode(KEY_PIN, INPUT_PULLUP);  // Init Key pin.  初始化Key引脚.
 
-    FastLED.addLeds<SK6812, DATA_PIN, GRB>(leds, 1);  // Init FastLED.  初始化FastLED.
+    FastLED.addLeds<SK6812, DATA_PIN, GRB>(leds,
+                                           1);  // Init FastLED.  初始化FastLED.
 
     xTaskCreate(
         LED, "led", 1000, NULL, 0,
@@ -43,7 +44,8 @@ void setup() {
 void loop() {
     if (!digitalRead(KEY_PIN)) {  // If Key was pressed.  如果按键按下.
         changeLedColor();  // Change LED color.  更换LED呼吸灯颜色.
-        while (!digitalRead(KEY_PIN))  // Hold until the key released.  在松开按键前保持状态.
+        while (!digitalRead(
+            KEY_PIN))  // Hold until the key released.  在松开按键前保持状态.
             ;
     }
     delay(100);
@@ -52,12 +54,14 @@ void loop() {
 void LED(void *parameter) {
     leds[0] = CRGB::Red;
     for (;;) {
-        for (int i = 0; i < 255; i++) {  // Set LED brightness from 0 to 255.  设置LED亮度从0到255.
+        for (int i = 0; i < 255;
+             i++) {  // Set LED brightness from 0 to 255.  设置LED亮度从0到255.
             FastLED.setBrightness(i);
             FastLED.show();
             delay(5);
         }
-        for (int i = 255; i > 0; i--) {  // Set LED brightness from 255 to 0.  设置LED亮度从255到0.
+        for (int i = 255; i > 0;
+             i--) {  // Set LED brightness from 255 to 0.  设置LED亮度从255到0.
             FastLED.setBrightness(i);
             FastLED.show();
             delay(5);
@@ -69,7 +73,8 @@ void LED(void *parameter) {
 void changeLedColor() {
     ledColor++;
     if (ledColor > 2) ledColor = 0;
-    switch (ledColor) {  // Change LED colors between R,G,B.  在红绿蓝中切换LED颜色.
+    switch (
+        ledColor) {  // Change LED colors between R,G,B.  在红绿蓝中切换LED颜色.
         case 0:
             leds[0] = CRGB::Red;
             break;

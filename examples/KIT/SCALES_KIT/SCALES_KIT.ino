@@ -7,8 +7,8 @@
 information：https://docs.m5stack.com/en/app/scales_kit
 * 获取更多资料请访问：https://docs.m5stack.com/zh_CN/app/scales_kit
 *
-* describe: SCALES KIT WEIGHT UNIT EXAMPLE.
-* date：2022/02/23
+* Product:  SCALES KIT WEIGHT UNIT EXAMPLE.
+* Date: 2022/02/23
 *******************************************************************************
 UNIT is connected to port A (G32/33), press the center button to tare when there
 is no load UNIT连接至端口A（G32/33），无负重情况下按下中心按键去处皮重

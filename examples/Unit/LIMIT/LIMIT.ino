@@ -6,8 +6,8 @@
 * Visit the website for more information:
 * 获取更多资料请访问:
 *
-* describe: Limit.
-* date: 2022/6/1
+* Product:  Limit.
+* Date: 2022/6/1
 *******************************************************************************
 */
 
@@ -17,7 +17,7 @@
 
 void setup() {
     M5.begin();  // Init M5Stack  初始化M5Stack
-    
+
     pinMode(KEY_PIN, INPUT_PULLUP);  // Init Limit pin.  初始化Limit引脚.
 }
 
