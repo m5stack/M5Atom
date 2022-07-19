@@ -7,6 +7,13 @@
 
 <img src="https://m5stack.oss-cn-shenzhen.aliyuncs.com/image/m5-docs_homepage/core/atom_matrix_01.webp" alt="M5Atom Matrix" width="350" height="350">
 
+* **如果查看 ATOM Lite 的详细介绍文档，[点击这里](https://docs.m5stack.com/zh_CN/core/atom_lite)**
+
+* **如果查看 ATOM Matrix 的详细介绍文档，[点击这里](https://docs.m5stack.com/zh_CN/core/atom_matrix)**
+
+* **如果想要购买 ATOM Lite 的话，[点击这里](https://item.taobao.com/item.htm?spm=a1z10.5-c-s.w4002-22404213529.13.6b94492dPkGMA4&id=611064238273)**
+
+* **如果想要购买 ATOM Matrix 的话，[点击这里](https://item.taobao.com/item.htm?spm=a1z10.5-c-s.w4002-22404213529.11.6b94492dPkGMA4&id=610821977232)**
 
 ## 描述
 
@@ -24,19 +31,13 @@
 
 ## 管脚映射
 
-<table>
-   <thead>
-      <tr>
-         <th>外设</th>
-         <th>引脚</th>
-      </tr>
-   </thead>
- <tr><td>RGB Led</td><td>G27</td></tr>
- <tr><td>Btn</td><td>G39</td></tr>
- <tr><td>IR</td><td>G12</td></tr>
- <tr><td>SCL</td><td>G21</td></tr>
- <tr><td>SDA</td><td>G25</td></tr>
-</table>
+| 外设    | 引脚 |
+| ------- | ---- |
+| RGB Led | G27  |
+| Btn     | G39  |
+| IR      | G12  |
+| SCL     | G21  |
+| SDA     | G25  |
 
 <img src="https://static-cdn.m5stack.com/resource/docs/static/assets/img/product_pics/core/minicore/atom/atom_pin_map_01.webp" width="100%">
 
@@ -46,8 +47,6 @@
 <img src="https://static-cdn.m5stack.com/resource/docs/static/assets/img/product_pics/core/minicore/atom/ATOM_LITE_SIMPLE_CIRCUT_20200514.webp" width="100%">'
 
 **Atom pixel tool**
-
-<img src="https://static-cdn.m5stack.com/resource/docs/images/atom/AtomPixelTool.png" alt="AtomPixelTool" height="100" style="margin-left:20px">
 
 [点此下载](https://m5stack.oss-cn-shenzhen.aliyuncs.com/resource/software/AtomPixTool.exe)
 
