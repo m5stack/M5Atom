@@ -1,6 +1,7 @@
 // Copyright (c) M5Stack. All rights reserved.
 
-// Licensed under the MIT license. See LICENSE file in the project root for full license information.
+// Licensed under the MIT license. See LICENSE file in the project root for full
+// license information.
 /**
  * \par Copyright (C), 2016-2017, M5Stack
  * \class M5Stack
@@ -22,12 +23,11 @@
 
     LED:
 
-    void animation(uint8_t *buffptr, uint8_t amspeed, uint8_t ammode, int64_t amcount = -1);
-    void displaybuff(uint8_t *buffptr, int8_t offsetx = 0, int8_t offsety = 0);
-    void setBrightness(uint8_t brightness);
-    void drawpix(uint8_t xpos, uint8_t ypos, CRGB Color);
-    void drawpix(uint8_t Number, CRGB Color);
-    void clear();
+    void animation(uint8_t *buffptr, uint8_t amspeed, uint8_t ammode, int64_t
+ amcount = -1); void displaybuff(uint8_t *buffptr, int8_t offsetx = 0, int8_t
+ offsety = 0); void setBrightness(uint8_t brightness); void drawpix(uint8_t
+ xpos, uint8_t ypos, CRGB Color); void drawpix(uint8_t Number, CRGB Color); void
+ clear();
 
     Button:
         M5.Btn.read();
@@ -58,26 +58,25 @@
 #include "utility/LED_DisPlay.h"
 
 #define FASTLED_INTERNAL
-class M5Atom
-{
-private:
-	bool _isInited = false;
-	/* data */
-public:
-	M5Atom(/* args */);
-	~M5Atom();
+class M5Atom {
+   private:
+    bool _isInited = false;
+    /* data */
+   public:
+    M5Atom(/* args */);
+    ~M5Atom();
 
-	MPU6886 IMU;
+    MPU6886 IMU;
     LED_DisPlay dis;
 
-	Button Btn = Button(39, true, 10);
+    Button Btn = Button(39, true, 10);
 
-	void begin(bool SerialEnable = true, bool I2CEnable = true, bool DisplayEnable = false);
-	void update();
+    void begin(bool SerialEnable = true, bool I2CEnable = true,
+               bool DisplayEnable = false);
+    void update();
 };
 
 extern M5Atom M5;
-
 
 #else
 #error “This library only supports boards with ESP32 processor.”
