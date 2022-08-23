@@ -7,7 +7,3 @@ function GetData(){if(window.XMLHttpRequest){httpRequest=new XMLHttpRequest()}el
 httpRequest.open("GET","/data",true);httpRequest.onreadystatechange=res_handle;httpRequest.send();}
 GetData();</script></body></html>
 )=====";
-
-
-
-
