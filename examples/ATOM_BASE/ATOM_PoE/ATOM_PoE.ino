@@ -6,26 +6,23 @@
 * Visit for more information: https://docs.m5stack.com/en/atom/atom_poe
 * 获取更多资料请访问：https://docs.m5stack.com/zh_CN/atom/atom_poe
 *
-* Before compile this example, you have to change line 28 of the ESP32 core's
-Server.h from:
-* "virtual void begin(uint16_t port=0) =0;"
-* To:
-* "virtual void begin() =0;"
-* But that will break anything that uses the ESP32 WiFi library's WebServer
-class.
-* Reference link: https://github.com/arduino-libraries/Ethernet/issues/88
-*
 * Product:  PoE.
-* Date: 2021/9/1
+* Date: 2023/3/2
 *******************************************************************************
-  Use ATOM PoE to connect to the LAN and start the webserver,
-  使用ATOM PoE连接到局域网并启动Web服务器，
-  users can connect to the IP address, and control the LEDs through the web
-page. 用户可以连接到IP地址，并通过网页控制LED。
+  Before compile this example, you have to change line 28 of the ESP32 core's
+  Server.h from: "virtual void begin(uint16_t port=0) =0;" To: "virtual void
+  begin() =0;" But that will break anything that uses the ESP32 WiFi library's
+  WebServer class.
+  Reference link:
+  https://community.m5stack.com/topic/3068/lan-module-w5500-with-poe-compilation-error
+  Use ATOM PoE to connect to the LAN and start the webserver,users can
+  使用ATOM PoE连接到局域网并启动Web服务器，用户可以
+  connect to the IP address, and control the LEDs through the web page.
+  连接到IP地址，并通过网页控制LED。
 */
 
 #include <SPI.h>
-#include <Ethernet2.h>
+#include <Ethernet.h>
 #include <FastLED.h>
 #include "index.h"
 
