@@ -5,11 +5,11 @@
 #include <freertos/task.h>
 #include <string>
 
-class Task {
+class M5Task {
    public:
-    Task(std::string taskName = "task", uint16_t taskSize = 10240,
+    M5Task(std::string taskName = "task", uint16_t taskSize = 10240,
          uint8_t priority = 5);
-    ~Task();
+    ~M5Task();
     void start(void* taskData = nullptr);
     void stop();
 

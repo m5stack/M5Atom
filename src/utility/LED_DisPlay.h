@@ -2,14 +2,14 @@
 #define _LED_DISPLAY_H_
 
 #include <FastLED.h>
-#include "utility/Task.h"
+#include "utility/M5Task.h"
 #include <freertos/FreeRTOS.h>
 #include <freertos/task.h>
 
 #define NUM_LEDS 25
 #define DATA_PIN 27
 
-class LED_DisPlay : public Task {
+class LED_DisPlay : public M5Task {
    private:
     CRGB _ledbuff[NUM_LEDS];
     uint8_t _numberled;

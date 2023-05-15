@@ -2,7 +2,7 @@
 #define _GPSANALYSE_H_
 
 #include <Arduino.h>
-#include "utility/Task.h"
+#include "utility/M5Task.h"
 #include <freertos/FreeRTOS.h>
 #include <freertos/task.h>
 
@@ -70,7 +70,7 @@ typedef struct GPGLL
 }GPGLL_t;
 */
 
-class GPSAnalyse : public Task {
+class GPSAnalyse : public M5Task {
    private:
     /* data */
     String _GPS_Str;

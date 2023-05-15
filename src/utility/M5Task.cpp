@@ -3,11 +3,11 @@
 #include <freertos/task.h>
 #include <string>
 
-#include "Task.h"
+#include "M5Task.h"
 
 static char tag[] = "Task";
 
-Task::Task(std::string taskName, uint16_t taskSize, uint8_t priority) {
+M5Task::M5Task(std::string taskName, uint16_t taskSize, uint8_t priority) {
     m_handle   = nullptr;
     m_taskdata = nullptr;
     m_taskname = taskName;
@@ -16,18 +16,18 @@ Task::Task(std::string taskName, uint16_t taskSize, uint8_t priority) {
     m_coreid   = tskNO_AFFINITY;
 }
 
-Task::~Task() {
+M5Task::~M5Task() {
 }
 
-void Task::runTask(void* pTaskInstance) {
-    Task* pTask = (Task*)pTaskInstance;
+void M5Task::runTask(void* pTaskInstance) {
+    M5Task* pTask = (M5Task*)pTaskInstance;
     ESP_LOGD(tag, ">> Task %s run", pTask->m_taskname.c_str());
     pTask->run(pTask->m_taskdata);
     ESP_LOGD(tag, "<< Task %s stop", pTask->m_taskname.c_str());
     pTask->stop();
 }
 
-void Task::start(void* taskData) {
+void M5Task::start(void* taskData) {
     if (m_handle != nullptr) {
         ESP_LOGD(tag, "[] Task %s is already running", m_taskname.c_str());
     }
@@ -36,7 +36,7 @@ void Task::start(void* taskData) {
                               m_priority, &m_handle, m_coreid);
 }
 
-void Task::stop() {
+void M5Task::stop() {
     if (m_handle == nullptr) {
         return;
     }
@@ -45,22 +45,22 @@ void Task::stop() {
     ::vTaskDelete(handleTemp);
 }
 
-void Task::delay(int ms) {
+void M5Task::delay(int ms) {
     ::vTaskDelay(ms / portTICK_PERIOD_MS);
 }
 
-void Task::setTaskSize(uint16_t size) {
+void M5Task::setTaskSize(uint16_t size) {
     m_tasksize = size;
 }
 
-void Task::setTaskPriority(uint8_t priority) {
+void M5Task::setTaskPriority(uint8_t priority) {
     m_priority = priority;
 }
 
-void Task::setTaskName(std::string name) {
+void M5Task::setTaskName(std::string name) {
     m_taskname = name;
 }
 
-void Task::setCore(BaseType_t coreID) {
+void M5Task::setCore(BaseType_t coreID) {
     m_coreid = coreID;
 }
