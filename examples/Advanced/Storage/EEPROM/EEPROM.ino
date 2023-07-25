@@ -37,7 +37,7 @@ void setup() {
                       EEPROM.read(i));  // Reads data from 0 to SIZE in EEPROM.
                                         // 读取EEPROM中从0到SIZE中的数据
     }
-    M5.Lcd.println("\n\nPress Btn to Write EEPROM");
+    Serial.println("\n\nPress Btn to Write EEPROM");
 }
 
 void loop() {

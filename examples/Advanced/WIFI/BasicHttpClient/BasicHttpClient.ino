@@ -20,7 +20,7 @@ WiFiMulti wifiMulti;
 HTTPClient http;
 
 void setup() {
-    M5.begin();  // Init M5Atom.  初始化 M5Atom
+    M5.begin();                            // Init M5Atom.  初始化 M5Atom
     wifiMulti.addAP("YOUR-WIFINAME",
                     "YOUR_WIFIPASSWORD");  // Storage wifi configuration
                                            // information.  存储wifi配置信息
@@ -45,17 +45,18 @@ void loop() {
             if (httpCode ==
                 HTTP_CODE_OK) {  // file found at server.  在服务器上找到文件
                 String payload = http.getString();
-                Serial.println(payload);  //打印在服务器上读取的文件.  Print
-                                          // files read on the server
+                Serial.println(payload);  // 打印在服务器上读取的文件.  Print
+                                          //  files read on the server
             }
         } else {
             Serial.printf("[HTTP] GET... failed, error: %s\n",
                           http.errorToString(httpCode).c_str());
         }
-        else {
-            M5.Lcd.print("connect failed");
-        }
+
         http.end();
+    } else {
+        Serial.print("connect failed");
     }
+
     delay(5000);
 }
