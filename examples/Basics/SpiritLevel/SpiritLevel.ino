@@ -51,7 +51,7 @@ void loop() {
 
     smoX = ALPHA * accX + BETA * smoX;
     smoY = ALPHA * accY + BETA * smoY;
-
+    M5.update();
     if (M5.Btn.wasPressed()) {  // Check if the key is pressed. 判断按键是否按下
         offX = smoX;
         offY = smoY;
