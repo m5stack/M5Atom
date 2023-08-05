@@ -21,7 +21,7 @@ class LED_DisPlay : public Task {
     int32_t _am_count = -1;
     uint8_t *_am_buffptr;
     uint16_t _yRows    = 5;
-    uint16_t _xColumns = 6;
+    uint16_t _xColumns = 5;
 
     SemaphoreHandle_t _xSemaphore = NULL;
 
