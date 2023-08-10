@@ -82,10 +82,10 @@ void loop() {
     Utc = GPS.s_GNRMC.Utc;
     SerialBT.printf("Latitude= %.5f \r\n", Lat);
     SerialBT.printf("Longitude= %.5f \r\n", Lon);
-    SerialBT.printf("DATA= %s \r\n", Utc);
+    SerialBT.printf("DATA= %s \r\n", Utc.c_str());
     Serial.printf("Latitude= %.5f \r\n", Lat);
     Serial.printf("Longitude= %.5f \r\n", Lon);
-    Serial.printf("DATA= %s \r\n", Utc);
+    Serial.printf("DATA= %s \r\n", Utc.c_str());
     writeLog(filename);
     delay(1000);
 }

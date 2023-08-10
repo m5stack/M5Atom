@@ -7,8 +7,11 @@
 * 获取更多资料请访问：https://docs.m5stack.com/zh_CN/core/atom_matrix
 *
 * Describe: SpiritLevel
-* Date: 2021/7/21
+* Date: 2023/8/5
 *******************************************************************************
+  Shake the M5Atom and the matrix light will change with the position, you can
+  set a new reference point by pressing the button.
+  晃动M5Atom,矩阵灯将会随着位置的变化而变化,你可以通过按下按键来设定新的基准点位
 */
 #include "M5Atom.h"
 
@@ -39,6 +42,7 @@ The loop() function is an infinite loop in which the program runs repeatedly
 在setup()函数中的程序执行完后，会接着执行loop()函数中的程序
 loop()函数是一个死循环，其中的程序会不断的重复运行 */
 void loop() {
+    M5.update();
     static float offX = 0., offY = 0.;
     static float smoX = 0., smoY = 0.;
 
@@ -53,8 +57,8 @@ void loop() {
     smoY = ALPHA * accY + BETA * smoY;
 
     if (M5.Btn.wasPressed()) {  // Check if the key is pressed. 判断按键是否按下
-        offX = smoX;
-        offY = smoY;
+        offX = smoX;  // Set the current position as the reference point.
+        offY = smoY;  // 设定当前位置为基准点位
     }
 
     float xc = (offX - smoX) * SENSITIVITY + 2.0;

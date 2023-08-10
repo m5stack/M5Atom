@@ -13,8 +13,6 @@ void LED_DisPlay::begin(uint8_t LEDNumber) {
 }
 
 void LED_DisPlay::run(void *data) {
-    data = nullptr;
-
     for (int num = 0; num < NUM_LEDS; num++) {
         _ledbuff[num] = 0x000000;
     }
