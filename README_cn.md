@@ -1,5 +1,9 @@
 # ATOM Library
 
+[![Arduino Compile](https://github.com/m5stack/M5Atom/actions/workflows/arduino-action-atom-compile.yml/badge.svg)](https://github.com/m5stack/M5Atom/actions/workflows/arduino-action-paper-compile.yml)
+[![Arduino Lint](https://github.com/m5stack/M5Atom/actions/workflows/Arduino-Lint-Check.yml/badge.svg)](https://github.com/m5stack/M5Atom/actions/workflows/Arduino-Lint-Check.yml)
+[![Clang Format](https://github.com/m5stack/M5Atom/actions/workflows/clang-format-check.yml/badge.svg)](https://github.com/m5stack/M5Atom/actions/workflows/clang-format-check.yml)
+
 中文 | [English](README_cn.md)
 
 <img src="https://m5stack.oss-cn-shenzhen.aliyuncs.com/image/m5-docs_homepage/core/atom_lite_01.webp" alt="M5Atom Lite" width="350" height="350">

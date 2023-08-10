@@ -22,7 +22,7 @@
 */
 
 #include <SPI.h>
-#include <Ethernet.h>
+#include <M5_Ethernet.h>
 #include <FastLED.h>
 #include "index.h"
 
