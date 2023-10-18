@@ -79,7 +79,7 @@ bool InitI2SSpeakOrMic(int mode) {
 }
 
 BaiduRest rest;
-uint8_t microphonedata0[1024 * 80];
+static uint8_t microphonedata0[1024 * 70];
 size_t byte_read = 0;
 int16_t *buffptr;
 uint32_t data_offset = 0;
@@ -128,7 +128,7 @@ void loop() {
                      DATA_SIZE, &byte_read, (100 / portTICK_RATE_MS));
             data_offset += 1024;
             M5.update();
-            if (M5.Btn.isReleased() || data_offset >= 81919) break;
+            if (M5.Btn.isReleased() || data_offset >= 71679) break;
             // delay(60);
         }
         Serial.println("end");
