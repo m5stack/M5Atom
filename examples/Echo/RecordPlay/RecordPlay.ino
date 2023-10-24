@@ -14,7 +14,7 @@
 #define MODE_SPK  1
 #define DATA_SIZE 1024
 
-uint8_t microphonedata0[1024 * 80];
+uint8_t microphonedata0[1024 * 70];
 int data_offset = 0;
 
 void InitI2SSpeakerOrMic(int mode) {
@@ -83,7 +83,7 @@ void loop() {
                      &byte_read, (100 / portTICK_RATE_MS));
             data_offset += 1024;
             M5.update();
-            if (M5.Btn.isReleased()) break;
+            if (M5.Btn.isReleased() || data_offset >= 71679) break;
             // delay(60);
         }
         size_t bytes_written;
