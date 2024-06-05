@@ -79,6 +79,6 @@ class M5Atom {
 extern M5Atom M5;
 
 #else
-#error “This library only supports boards with ESP32 processor.”
+#error "This library only supports boards with ESP32 processor."
 #endif
 #endif
