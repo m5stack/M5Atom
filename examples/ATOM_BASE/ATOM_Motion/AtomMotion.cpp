@@ -41,7 +41,7 @@ uint8_t AtomMotion::ReadBytes(uint8_t address, uint8_t subAddress,
 
 uint8_t AtomMotion::SetServoAngle(uint8_t Servo_CH, uint8_t angle) {
     uint8_t Register_address = Servo_CH - 1;
-    if (Register_address > 3) return 0;
+    if (Register_address > 3) return 1;
     Write1Byte(SERVO_ADDRESS, Register_address, angle);
     return 0;
 }
