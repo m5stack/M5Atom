@@ -19,8 +19,7 @@ information 请连接端口,按下按钮扫描，串行显示器将打印信息
 #define DLED 33
 
 void setup() {
-    M5.begin(false, false, true);
-    Serial.begin(9600);
+    M5.begin(true, false, true);
     Serial2.begin(
         9600, SERIAL_8N1, 22,
         19);  // Set the baud rate of serial port 2 to 9600,8 data bits, no

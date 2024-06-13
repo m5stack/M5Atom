@@ -23,7 +23,11 @@ uint8_t wakeup_cmd       = 0x00;
 uint8_t start_scan_cmd[] = {0x04, 0xE4, 0x04, 0x00, 0xFF, 0x14};
 uint8_t stop_scan_cmd[]  = {0x04, 0xE5, 0x04, 0x00, 0xFF, 0x13};
 uint8_t host_mode_cmd[]  = {0x07, 0xC6, 0x04, 0x08, 0x00,
-                           0x8A, 0x08, 0xFE, 0x95};
+                            0x8A, 0x08, 0xFE, 0x95};
+
+uint8_t ack_cmd[] = {0x04, 0xD0, 0x00, 0x00, 0xFF, 0x2C};
+
+#define TRIG 23
 
 void setup() {
     M5.begin(true, false, true);
@@ -33,6 +37,7 @@ void setup() {
               // parity bits, and 1 stop bit, and set RX to 22 and TX to 19.
               // 设置串口二的波特率为115200,8位数据位,没有校验位,1位停止位,并设置RX为22,TX为19
     M5.dis.fillpix(0xfff000);  // YELLOW 黄色
+    delay(1000);
     Serial2.write(wakeup_cmd);
     delay(50);
     Serial2.write(host_mode_cmd, sizeof(host_mode_cmd));
@@ -45,12 +50,13 @@ void loop() {
         Serial2.write(wakeup_cmd);
         delay(50);
         Serial2.write(start_scan_cmd, sizeof(start_scan_cmd));
-        delay(1000);
-        Serial2.write(start_scan_cmd, sizeof(stop_scan_cmd));
     }
     if (Serial.available()) {
-        int ch = Serial.read();
-        Serial2.write(ch);
+        Serial2.write(wakeup_cmd);
+        delay(50);
+        while (Serial.available()) {
+            Serial2.write(Serial.read());
+        }
     }
 
     if (Serial2.available()) {
