@@ -98,7 +98,6 @@ void setup() {
     WiFi.begin(WifiSSID, WifiPWD);
 
     M5.dis.drawpix(0, CRGB(0, 128, 0));
-    size_t bytes_written;
 
     while (WiFi.status() != WL_CONNECTED) {
         delay(500);

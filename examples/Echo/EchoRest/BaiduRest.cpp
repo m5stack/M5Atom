@@ -97,7 +97,7 @@ int BaiduRest::Pcm2String(uint8_t* pcm_buff, uint32_t pcm_lan, String dev_pid,
     resthttp.addHeader("Content-Type", "audio/pcm;rate=16000");
     resthttp.POST((uint8_t*)pcm_buff, pcm_lan);
 
-    Serial.printf("Time %dms\r\n", (micros() - time) / 1000);
+    Serial.printf("Time %dms\r\n", (unsigned int)(micros() - time) / 1000);
 
     String response = resthttp.getString();
     Serial.println(response);
@@ -222,9 +222,10 @@ int BaiduRest::String2Pcm(String str, int spd, int pit, int vol, int per) {
     resthttp.begin(apiurl);
 
     if (resthttp.GET() == HTTP_CODE_OK) {
-        size_t pcmsize = resthttp.getSize();
+        // size_t pcmsize = resthttp.getSize();
 
-        size_t getsize     = 0;
-        WiFiClient* client = resthttp.getStreamPtr();
+        // size_t getsize     = 0;
+        // WiFiClient* client = resthttp.getStreamPtr();
     }
+    return 0;
 }
