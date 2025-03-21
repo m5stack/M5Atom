@@ -1,4 +1,4 @@
-#include <M5Atom.h>
+#include <M5Atom.h> 
 #include <Adafruit_NeoPixel.h>
 
 #define PIN       27  //定义NeoPixel的控制引脚
@@ -14,24 +14,6 @@ void setup() {
     pixels.begin();  // Init the NeoPixel library.  初始化NeoPixel库
 }
 
-void loop() {
-    rainbow(20);
-}
-
-void rainbow(uint8_t wait) {
-    uint16_t i, j;
-
-    for (j = 0; j < 256; j++) {
-        for (i = 0; i < pixels.numPixels(); i++) {
-            pixels.setPixelColor(i, Wheel((i + j) & 255));
-            while (M5.Btn.read() == 1)
-                ;
-        }
-        pixels.show();
-        delay(wait);
-    }
-}
-
 // Input a value 0 to 255 to get a color value.
 // The colours are a transition r - g - b - back to r.
 uint32_t Wheel(byte WheelPos) {
@@ -45,4 +27,22 @@ uint32_t Wheel(byte WheelPos) {
     }
     WheelPos -= 170;
     return pixels.Color(WheelPos * 3, 255 - WheelPos * 3, 0);
+}
+
+void rainbow(uint8_t wait) {
+  uint16_t i, j;
+
+  for (j = 0; j < 256; j++) {
+      for (i = 0; i < pixels.numPixels(); i++) {
+          pixels.setPixelColor(i, Wheel((i + j) & 255));
+          while (M5.Btn.read() == 1)
+              ;
+      }
+      pixels.show();
+      delay(wait);
+  }
+}
+
+void loop() {
+  rainbow(20);
 }
