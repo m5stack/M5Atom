@@ -3,7 +3,6 @@
 
 #include "M5Atom.h"
 #include "Arduino.h"
-#include <driver/i2s.h>
 #include "FS.h"
 
 #define CONFIG_I2S_BCK_PIN     22
@@ -12,6 +11,20 @@
 #define CONFIG_I2S_DATA_IN_PIN -1
 
 #define SPAKER_I2S_NUMBER I2S_NUM_0
+
+#ifdef ESP_IDF_VERSION
+#if (ESP_IDF_VERSION >= ESP_IDF_VERSION_VAL(5, 0, 0))
+#define USE_NEW_I2S_API 1
+#include <ESP_I2S.h>
+#else
+#define USE_NEW_I2S_API 0
+#include "driver/i2s.h"
+#endif
+#else
+#define USE_NEW_I2S_API 0
+#endif
+
+extern const double sinmap[582120];
 
 typedef struct beepParameters {
     int rate;
@@ -60,5 +73,6 @@ class ATOMSPK {
     size_t _rate      = 44100;
     size_t listLength = 0;
 };
+void speakerPlayTask(void *arg);
 
 #endif

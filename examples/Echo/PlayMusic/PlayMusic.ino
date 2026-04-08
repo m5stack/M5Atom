@@ -8,9 +8,26 @@
  * -partition Scheme: No OTA
  *
  ****************************************************************/
-#include <driver/i2s.h>
-
 #include "M5Atom.h"
+
+#if defined __has_include
+#if __has_include(<esp_idf_version.h>)
+#include <esp_idf_version.h>
+#endif
+#endif
+
+#ifdef ESP_IDF_VERSION
+#if (ESP_IDF_VERSION >= ESP_IDF_VERSION_VAL(5, 0, 0))
+#define USE_NEW_I2S_API 1
+#include <ESP_I2S.h>
+#else
+#define USE_NEW_I2S_API 0
+#include <driver/i2s.h>
+#endif
+#else
+#define USE_NEW_I2S_API 0
+#include <driver/i2s.h>
+#endif
 
 extern const unsigned char audio_chocobo[1164240];
 
@@ -24,13 +41,58 @@ extern const unsigned char audio_chocobo[1164240];
 #define MODE_MIC 0
 #define MODE_SPK 1
 
+static constexpr uint32_t kSampleRate = 88200;
+
+#if USE_NEW_I2S_API
+I2SClass I2S;
+
+static bool ConfigureNewI2SMic() {
+    I2S.setPinsPdmRx(CONFIG_I2S_LRCK_PIN, CONFIG_I2S_DATA_IN_PIN);
+    if (!I2S.begin(I2S_MODE_PDM_RX, kSampleRate, I2S_DATA_BIT_WIDTH_16BIT,
+                   I2S_SLOT_MODE_MONO)) {
+        return false;
+    }
+
+    i2s_pdm_rx_slot_config_t slot_cfg = I2S_PDM_RX_SLOT_DEFAULT_CONFIG(
+        I2S_DATA_BIT_WIDTH_16BIT, I2S_SLOT_MODE_MONO);
+    slot_cfg.slot_mask = I2S_PDM_SLOT_RIGHT;
+
+    i2s_chan_handle_t rx_chan = I2S.rxChan();
+    if (rx_chan == nullptr) {
+        return false;
+    }
+    if (i2s_channel_disable(rx_chan) != ESP_OK) {
+        return false;
+    }
+    if (i2s_channel_reconfig_pdm_rx_slot(rx_chan, &slot_cfg) != ESP_OK) {
+        return false;
+    }
+    if (i2s_channel_enable(rx_chan) != ESP_OK) {
+        return false;
+    }
+    return true;
+}
+#endif
+
 bool InitI2SSpeakOrMic(int mode) {
+#if USE_NEW_I2S_API
+    I2S.end();
+
+    if (mode == MODE_MIC) {
+        return ConfigureNewI2SMic();
+    }
+
+    I2S.setPins(CONFIG_I2S_BCK_PIN, CONFIG_I2S_LRCK_PIN, CONFIG_I2S_DATA_PIN,
+                -1, -1);
+    return I2S.begin(I2S_MODE_STD, kSampleRate, I2S_DATA_BIT_WIDTH_16BIT,
+                     I2S_SLOT_MODE_MONO, I2S_STD_SLOT_RIGHT);
+#else
     esp_err_t err = ESP_OK;
 
     i2s_driver_uninstall(SPEAK_I2S_NUMBER);
     i2s_config_t i2s_config = {
         .mode        = (i2s_mode_t)(I2S_MODE_MASTER),
-        .sample_rate = 88200,
+        .sample_rate = kSampleRate,
         .bits_per_sample =
             I2S_BITS_PER_SAMPLE_16BIT,  // is fixed at 12bit, stereo, MSB
         .channel_format       = I2S_CHANNEL_FMT_ALL_RIGHT,
@@ -65,10 +127,11 @@ bool InitI2SSpeakOrMic(int mode) {
     Serial.println("Init i2s_set_pin");
     err += i2s_set_pin(SPEAK_I2S_NUMBER, &tx_pin_config);
     Serial.println("Init i2s_set_clk");
-    err += i2s_set_clk(SPEAK_I2S_NUMBER, 88200, I2S_BITS_PER_SAMPLE_16BIT,
+    err += i2s_set_clk(SPEAK_I2S_NUMBER, kSampleRate, I2S_BITS_PER_SAMPLE_16BIT,
                        I2S_CHANNEL_MONO);
 
-    return true;
+    return (err == ESP_OK);
+#endif
 }
 
 void setup() {
@@ -92,8 +155,12 @@ void loop() {
     //}
 
     if (Spakeflag) {
+#if USE_NEW_I2S_API
+        I2S.write(audio_chocobo, sizeof(audio_chocobo));
+#else
         i2s_write(SPEAK_I2S_NUMBER, audio_chocobo, 1164240, &bytes_written,
                   portMAX_DELAY);
+#endif
     }
 
     M5.update();
